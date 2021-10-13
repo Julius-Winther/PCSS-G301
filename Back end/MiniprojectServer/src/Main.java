@@ -25,7 +25,16 @@ public class Main implements Serializable {
         game.transferBlockOut(socket, output);
 
         //Receiving name of the first user
-        //game.loadPlayerInfo(socket, input);
+        game.loadPlayerInfo(socket, input);
+
+        //Receiving name and IP of host
+        game.loadHostInfo(socket, input);
+
+        //Sending the info from player
+        game.sendPlayerInfo(socket, output);
+
+        //Sending the info on host to player
+        //game.sendHostInfo(socket, output);
 
 
 

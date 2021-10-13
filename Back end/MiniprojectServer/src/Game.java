@@ -11,6 +11,8 @@ public class Game {
     public int points;
     public boolean isActive;
 
+    //Host Variables
+    public String IP;
 
     //QuestionBlock Variables
     static ArrayList<QuestionBlock> questionBlock = new ArrayList<QuestionBlock>();
@@ -20,10 +22,25 @@ public class Game {
     public static int categoryId;
 
     //Player voids
+    //Load player info
     public void loadPlayerInfo(Socket socket, DataInputStream input) throws IOException {
         name = input.readUTF();
-        players.add(new Player(playerId, name, 0, false));
+        players.add(new Player(playerId, name, 0));
+    }
+    //Send player info
+    public void sendPlayerInfo(Socket socket, DataOutputStream output) throws IOException {
+        for(int i = 0; i < players.size(); i++) {
+            output.writeInt(players.get(i).getPlayerId());
+            output.writeUTF(players.get(i).getName());
+            output.writeInt(players.get(i).getPoints());
+        }
+    }
 
+    //Host voids
+    public void loadHostInfo(Socket socket, DataInputStream input) throws IOException {
+        name = input.readUTF();
+        IP = input.readUTF();
+        Host onlyHost = new Host(name, IP);
     }
 
 

@@ -4,13 +4,14 @@ public class Host {
     boolean isCorrect;
     int points;
 
+    public Host(String name, String ip) {
+        this.name = name;
+        this.ip = ip;
+    }
 
-
-//Host function
+    //Host function
     public int chooseCorrect(int points, boolean isCorrect) {
-
         this.points = points;
-
         if (isCorrect = false) {
             points = -1*points;
         }

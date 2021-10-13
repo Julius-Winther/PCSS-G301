@@ -6,11 +6,10 @@ public class Player {
     public boolean isActive;
 
     //Constructor of player
-    public Player(int playerId, String name, int points, boolean isActive) {
+    public Player(int playerId, String name, int points) {
         this.playerId = playerId;
         this.name = name;
         this.points = points;
-        this.isActive = isActive;
     }
 
     //Getters and Setters for the variables
