@@ -34,9 +34,7 @@ public class Main implements Serializable {
         game.sendPlayerInfo(socket, output);
 
         //Sending the info on host to player
-        //game.sendHostInfo(socket, output);
-
-
+        game.sendHostInfo(socket, output);
 
     }
 }

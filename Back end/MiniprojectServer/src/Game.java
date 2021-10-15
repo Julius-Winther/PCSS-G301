@@ -7,12 +7,13 @@ public class Game {
     //Player variables
     ArrayList<Player> players = new ArrayList<Player>();
     public int playerId = 0;
-    public String name;
+    public String playerName;
     public int points;
     public boolean isActive;
 
     //Host Variables
     public String IP;
+    public String hostName;
 
     //QuestionBlock Variables
     static ArrayList<QuestionBlock> questionBlock = new ArrayList<QuestionBlock>();
@@ -24,8 +25,8 @@ public class Game {
     //Player voids
     //Load player info
     public void loadPlayerInfo(Socket socket, DataInputStream input) throws IOException {
-        name = input.readUTF();
-        players.add(new Player(playerId, name, 0));
+        playerName = input.readUTF();
+        players.add(new Player(playerId, playerName, 0));
     }
     //Send player info
     public void sendPlayerInfo(Socket socket, DataOutputStream output) throws IOException {
@@ -38,11 +39,15 @@ public class Game {
 
     //Host voids
     public void loadHostInfo(Socket socket, DataInputStream input) throws IOException {
-        name = input.readUTF();
+        hostName = input.readUTF();
         IP = input.readUTF();
-        Host onlyHost = new Host(name, IP);
+        Host onlyHost = new Host(playerName, IP);
     }
 
+    public void sendHostInfo(Socket socket, DataOutputStream output) throws IOException {
+        output.writeUTF(hostName);
+        output.writeUTF(IP);
+    }
 
     //QuestionBlock voids
       //Load questions from document
