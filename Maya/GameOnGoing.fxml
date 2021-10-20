@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+
+<VBox alignment="CENTER" prefHeight="600" prefWidth="1080" spacing="20.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.javafxtest.HelloController">
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+    </padding>
+    <AnchorPane prefHeight="600" prefWidth="1080">
+        <children>
+            <Rectangle id="background" arcHeight="5.0" arcWidth="5.0" fill="#fb7c2c" height="600" stroke="BLACK" strokeType="INSIDE" width="1080" />
+         <Text id="catagory 5" fill="WHITE" layoutX="947.0" layoutY="52.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Soccer" textAlignment="CENTER">
+            <font>
+               <Font size="30.0" />
+            </font>
+         </Text>
+         <Text id="catagory 4" fill="WHITE" layoutX="783.0" layoutY="52.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Media" textAlignment="CENTER">
+            <font>
+               <Font size="30.0" />
+            </font>
+         </Text>
+         <Text id="catagory 3" fill="WHITE" layoutX="601.0" layoutY="52.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Random" textAlignment="CENTER">
+            <font>
+               <Font size="30.0" />
+            </font>
+         </Text>
+         <Text id="catagory 2" fill="WHITE" layoutX="440.0" layoutY="52.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Biology" textAlignment="CENTER">
+            <font>
+               <Font size="30.0" />
+            </font>
+         </Text>
+         <Text id="catagory 1" fill="WHITE" layoutX="288.0" layoutY="51.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Trivia" textAlignment="CENTER">
+            <font>
+               <Font size="30.0" />
+            </font>
+         </Text>
+         <Rectangle id="teamBackground" arcHeight="5.0" arcWidth="5.0" fill="#dc6c24" height="600.0" layoutX="1.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="230.0" />
+         <VBox layoutX="912.0" layoutY="98.0" prefHeight="500.0" prefWidth="154.0" AnchorPane.rightAnchor="12.0">
+            <children>
+               <Button id="cat5_100" mnemonicParsing="false" prefHeight="100.0" prefWidth="155.0" text="100">
+                  <font>
+                     <Font size="25.0" />
+                  </font></Button>
+               <Button id="cat5_200" mnemonicParsing="false" prefHeight="100.0" prefWidth="155.0" text="200">
+                  <font>
+                     <Font size="25.0" />
+                  </font></Button>
+               <Button id="cat5_300" mnemonicParsing="false" prefHeight="100.0" prefWidth="155.0" text="300">
+                  <font>
+                     <Font size="25.0" />
+                  </font></Button>
+               <Button id="cat5_400" mnemonicParsing="false" prefHeight="100.0" prefWidth="155.0" text="400">
+                  <font>
+                     <Font size="25.0" />
+                  </font></Button>
+               <Button id="cat5_500" mnemonicParsing="false" prefHeight="100.0" prefWidth="155.0" text="500">
+                  <font>
+                     <Font size="25.0" />
+                  </font></Button>
+            </children>
+         </VBox>
+         <VBox layoutX="743.0" layoutY="98.0" prefHeight="500.0" prefWidth="154.0" AnchorPane.rightAnchor="179.0">
+            <children>
+               <Button id="cat4_100" mnemonicParsing="false" prefHeight="100.0" prefWidth="155.0" text="100">
+                  <font>
+                     <Font size="25.0" />
+                  </font>
+               </Button>
+               <Button id="cat4_200" mnemonicParsing="false" prefHeight="100.0" prefWidth="155.0" text="200">
+                  <font>
+                     <Font size="25.0" />
+                  </font>
+               </Button>
+               <Button id="cat4_300" mnemonicParsing="false" prefHeight="100.0" prefWidth="155.0" text="300">
+                  <font>
+                     <Font size="25.0" />
+                  </font>
+               </Button>
+               <Button id="cat4_400" mnemonicParsing="false" prefHeight="100.0" prefWidth="155.0" text="400">
+                  <font>
+                     <Font size="25.0" />
+                  </font>
+               </Button>
+               <Button id="cat4_500" mnemonicParsing="false" prefHeight="100.0" prefWidth="155.0" text="500">
+                  <font>
+                     <Font size="25.0" />
+                  </font>
+               </Button>
+            </children>
+         </VBox>
+         <VBox layoutX="587.0" layoutY="98.0" prefHeight="500.0" prefWidth="154.0" AnchorPane.rightAnchor="346.0">
+            <children>
+               <Button id="cat3_100" mnemonicParsing="false" prefHeight="100.0" prefWidth="155.0" text="100">
+                  <font>
+                     <Font size="25.0" />
+                  </font>
+               </Button>
+               <Button id="cat3_200" mnemonicParsing="false" prefHeight="100.0" prefWidth="155.0" text="200">
+                  <font>
+                     <Font size="25.0" />
+                  </font>
+               </Button>
+               <Button id="cat3_300" mnemonicParsing="false" prefHeight="100.0" prefWidth="155.0" text="300">
+                  <font>
+                     <Font size="25.0" />
+                  </font>
+               </Button>
+               <Button id="cat3_400" mnemonicParsing="false" prefHeight="100.0" prefWidth="155.0" text="400">
+                  <font>
+                     <Font size="25.0" />
+                  </font>
+               </Button>
+               <Button id="cat3_500" mnemonicParsing="false" prefHeight="100.0" prefWidth="155.0" text="500">
+                  <font>
+                     <Font size="25.0" />
+                  </font>
+               </Button>
+            </children>
+         </VBox>
+         <VBox layoutX="249.0" layoutY="98.0" prefHeight="500.0" prefWidth="154.0" AnchorPane.leftAnchor="246.0">
+            <children>
+               <Button id="cat1_100" mnemonicParsing="false" prefHeight="100.0" prefWidth="155.0" text="100">
+                  <font>
+                     <Font size="25.0" />
+                  </font>
+               </Button>
+               <Button id="cat1_200" mnemonicParsing="false" prefHeight="100.0" prefWidth="155.0" text="200">
+                  <font>
+                     <Font size="25.0" />
+                  </font>
+               </Button>
+               <Button id="cat1_300" mnemonicParsing="false" prefHeight="100.0" prefWidth="155.0" text="300">
+                  <font>
+                     <Font size="25.0" />
+                  </font>
+               </Button>
+               <Button id="cat1_400" mnemonicParsing="false" prefHeight="100.0" prefWidth="155.0" text="400">
+                  <font>
+                     <Font size="25.0" />
+                  </font>
+               </Button>
+               <Button id="cat1_500" mnemonicParsing="false" prefHeight="100.0" prefWidth="155.0" text="500">
+                  <font>
+                     <Font size="25.0" />
+                  </font>
+               </Button>
+            </children>
+         </VBox>
+         <VBox layoutX="413.0" layoutY="98.0" prefHeight="500.0" prefWidth="154.0" AnchorPane.rightAnchor="513.0">
+            <children>
+               <Button id="cat2_100" mnemonicParsing="false" prefHeight="100.0" prefWidth="155.0" text="100">
+                  <font>
+                     <Font size="25.0" />
+                  </font>
+               </Button>
+               <Button id="cat2_200" mnemonicParsing="false" prefHeight="100.0" prefWidth="155.0" text="200">
+                  <font>
+                     <Font size="25.0" />
+                  </font>
+               </Button>
+               <Button id="cat2_300" mnemonicParsing="false" prefHeight="100.0" prefWidth="155.0" text="300">
+                  <font>
+                     <Font size="25.0" />
+                  </font>
+               </Button>
+               <Button id="cat2_400" mnemonicParsing="false" prefHeight="100.0" prefWidth="155.0" text="400">
+                  <font>
+                     <Font size="25.0" />
+                  </font>
+               </Button>
+               <Button id="cat2_500" mnemonicParsing="false" prefHeight="100.0" prefWidth="155.0" text="500">
+                  <font>
+                     <Font size="25.0" />
+                  </font>
+               </Button>
+            </children>
+         </VBox>
+         <Text id="text_team1" layoutX="78.0" layoutY="48.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Team 1" textAlignment="CENTER">
+            <font>
+               <Font size="23.0" />
+            </font>
+         </Text>
+         <Text id="text_team2" layoutX="78.0" layoutY="235.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Team 2" textAlignment="CENTER">
+            <font>
+               <Font size="23.0" />
+            </font>
+         </Text>
+         <Text id="text_team3" layoutX="78.0" layoutY="431.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Team 3" textAlignment="CENTER">
+            <font>
+               <Font size="23.0" />
+            </font>
+         </Text>
+         <Circle fill="#fef2d2" layoutX="115.0" layoutY="100.0" radius="40.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
+         <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="30.0" layoutX="66.0" layoutY="151.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="99.0" />
+         <Button layoutX="149.0" layoutY="150.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="31.0" text="+" textAlignment="CENTER" wrapText="true">
+            <font>
+               <Font name="System Bold" size="15.0" />
+            </font>
+            <effect>
+               <ColorAdjust brightness="-0.06" contrast="-0.1" hue="0.84" saturation="1.0" />
+            </effect>
+         </Button>
+         <Button layoutX="50.0" layoutY="150.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="31.0" text="-" textAlignment="CENTER" wrapText="true">
+            <font>
+               <Font name="System Bold" size="15.0" />
+            </font>
+            <effect>
+               <ColorAdjust brightness="-0.06" contrast="-0.1" hue="-0.02" saturation="1.0" />
+            </effect>
+         </Button>
+         <Text id="text_team1_points" layoutX="101.0" layoutY="172.0" strokeType="OUTSIDE" strokeWidth="0.0" text="100" textAlignment="CENTER">
+            <font>
+               <Font size="17.0" />
+            </font>
+         </Text>
+         <Circle fill="#fef2d2" layoutX="115.0" layoutY="300.0" radius="40.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
+         <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="30.0" layoutX="65.0" layoutY="358.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="99.0" />
+         <Button layoutX="149.0" layoutY="357.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="31.0" text="+" textAlignment="CENTER" wrapText="true">
+            <font>
+               <Font name="System Bold" size="15.0" />
+            </font>
+            <effect>
+               <ColorAdjust brightness="-0.06" contrast="-0.1" hue="0.84" saturation="1.0" />
+            </effect>
+         </Button>
+         <Button layoutX="50.0" layoutY="357.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="31.0" text="-" textAlignment="CENTER" wrapText="true">
+            <font>
+               <Font name="System Bold" size="15.0" />
+            </font>
+            <effect>
+               <ColorAdjust brightness="-0.06" contrast="-0.1" hue="-0.02" saturation="1.0" />
+            </effect>
+         </Button>
+         <Text id="text_team2_points" layoutX="102.0" layoutY="379.0" strokeType="OUTSIDE" strokeWidth="0.0" text="100" textAlignment="CENTER">
+            <font>
+               <Font size="17.0" />
+            </font>
+         </Text>
+         <Circle fill="#fef2d2" layoutX="116.0" layoutY="477.0" radius="40.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
+         <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="30.0" layoutX="65.0" layoutY="532.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="99.0" />
+         <Button layoutX="149.0" layoutY="531.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="31.0" text="+" textAlignment="CENTER" wrapText="true">
+            <font>
+               <Font name="System Bold" size="15.0" />
+            </font>
+            <effect>
+               <ColorAdjust brightness="-0.06" contrast="-0.1" hue="0.84" saturation="1.0" />
+            </effect>
+         </Button>
+         <Button layoutX="50.0" layoutY="531.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="31.0" text="-" textAlignment="CENTER" wrapText="true">
+            <font>
+               <Font name="System Bold" size="15.0" />
+            </font>
+            <effect>
+               <ColorAdjust brightness="-0.06" contrast="-0.1" hue="-0.02" saturation="1.0" />
+            </effect>
+         </Button>
+         <Text id="text_team3_points" layoutX="102.0" layoutY="553.0" strokeType="OUTSIDE" strokeWidth="0.0" text="100" textAlignment="CENTER">
+            <font>
+               <Font size="17.0" />
+            </font>
+         </Text>
+        </children>
+    </AnchorPane>
+</VBox>
