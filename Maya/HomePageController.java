@@ -23,7 +23,7 @@ public class HomePageController {
 
         if (event.getSource() == joinGameBtn) {
             stage = (Stage) joinGameBtn.getScene().getWindow();
-            root = FXMLLoader.load(getClass().getResource("GameOnGoing.fxml"));
+            root = FXMLLoader.load(getClass().getResource("JoinPageView.fxml"));
         } else if (event.getSource() == hostGameBtn) {
             stage = (Stage) hostGameBtn.getScene().getWindow();
             root = FXMLLoader.load(getClass().getResource("QuestionPage.fxml"));

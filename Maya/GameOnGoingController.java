@@ -28,4 +28,18 @@ public class GameOnGoingController {
         stage.setScene(scene);
         stage.show();
     }
+
+    @FXML
+    private Button btnAddPoint1, btnAddPoint2, btnAddPoint3;
+    private Button btnRemovePoint1, btnRemovePoint2, btnRemovePoint3;
+
+    @FXML
+    private void pointButtonAction(ActionEvent event) throws Exception {
+
+        if (event.getSource() == btnAddPoint1) {
+            //textTeamPoint1 add...
+        } else {
+
+        }
+    }
 }

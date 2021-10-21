@@ -202,7 +202,7 @@
          </Text>
          <Circle fill="#fff6e2" layoutX="115.0" layoutY="107.0" radius="40.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
          <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="30.0" layoutX="67.0" layoutY="161.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="99.0" />
-         <Button layoutX="149.0" layoutY="160.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="31.0" text="+" textAlignment="CENTER" wrapText="true">
+         <Button fx:id="btnAddPoint1" layoutX="149.0" layoutY="160.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="31.0" text="+" textAlignment="CENTER" wrapText="true">
             <font>
                <Font name="System Bold" size="15.0" />
             </font>
@@ -210,7 +210,7 @@
                <ColorAdjust brightness="-0.06" contrast="-0.1" hue="0.84" saturation="1.0" />
             </effect>
          </Button>
-         <Button layoutX="50.0" layoutY="160.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="31.0" text="-" textAlignment="CENTER" wrapText="true">
+         <Button fx:id="btnRemovePoint1" layoutX="50.0" layoutY="160.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="31.0" text="-" textAlignment="CENTER" wrapText="true">
             <font>
                <Font name="System Bold" size="15.0" />
             </font>
@@ -218,14 +218,14 @@
                <ColorAdjust brightness="-0.06" contrast="-0.1" hue="-0.02" saturation="1.0" />
             </effect>
          </Button>
-         <Text id="text_team1_points" layoutX="101.0" layoutY="182.0" strokeType="OUTSIDE" strokeWidth="0.0" text="100" textAlignment="CENTER">
+         <Text id="text_team1_points" fx:id="TextTeamPoint1" layoutX="101.0" layoutY="182.0" strokeType="OUTSIDE" strokeWidth="0.0" text="100" textAlignment="CENTER">
             <font>
                <Font size="17.0" />
             </font>
          </Text>
          <Circle fill="#fff6e2" layoutX="116.0" layoutY="300.0" radius="40.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
          <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="30.0" layoutX="66.0" layoutY="352.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="99.0" />
-         <Button layoutX="149.0" layoutY="351.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="31.0" text="+" textAlignment="CENTER" wrapText="true">
+         <Button fx:id="btnAddPoint2" layoutX="149.0" layoutY="351.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="31.0" text="+" textAlignment="CENTER" wrapText="true">
             <font>
                <Font name="System Bold" size="15.0" />
             </font>
@@ -233,7 +233,7 @@
                <ColorAdjust brightness="-0.06" contrast="-0.1" hue="0.84" saturation="1.0" />
             </effect>
          </Button>
-         <Button layoutX="50.0" layoutY="351.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="31.0" text="-" textAlignment="CENTER" wrapText="true">
+         <Button fx:id="btnRemovePoint2" layoutX="50.0" layoutY="351.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="31.0" text="-" textAlignment="CENTER" wrapText="true">
             <font>
                <Font name="System Bold" size="15.0" />
             </font>
@@ -241,14 +241,14 @@
                <ColorAdjust brightness="-0.06" contrast="-0.1" hue="-0.02" saturation="1.0" />
             </effect>
          </Button>
-         <Text id="text_team2_points" layoutX="102.0" layoutY="373.0" strokeType="OUTSIDE" strokeWidth="0.0" text="100" textAlignment="CENTER">
+         <Text id="text_team2_points" fx:id="TextTeamPoint2" layoutX="102.0" layoutY="373.0" strokeType="OUTSIDE" strokeWidth="0.0" text="100" textAlignment="CENTER">
             <font>
                <Font size="17.0" />
             </font>
          </Text>
          <Circle fill="#fff6e2" layoutX="116.0" layoutY="490.0" radius="40.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
          <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="30.0" layoutX="65.0" layoutY="542.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="99.0" />
-         <Button layoutX="148.0" layoutY="541.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="31.0" text="+" textAlignment="CENTER" wrapText="true">
+         <Button fx:id="btnAddPoint3" layoutX="148.0" layoutY="541.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="31.0" text="+" textAlignment="CENTER" wrapText="true">
             <font>
                <Font name="System Bold" size="15.0" />
             </font>
@@ -256,7 +256,7 @@
                <ColorAdjust brightness="-0.06" contrast="-0.1" hue="0.84" saturation="1.0" />
             </effect>
          </Button>
-         <Button layoutX="50.0" layoutY="541.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="31.0" text="-" textAlignment="CENTER" wrapText="true">
+         <Button fx:id="btnRemovePoint3" layoutX="50.0" layoutY="541.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="31.0" text="-" textAlignment="CENTER" wrapText="true">
             <font>
                <Font name="System Bold" size="15.0" />
             </font>
@@ -264,7 +264,7 @@
                <ColorAdjust brightness="-0.06" contrast="-0.1" hue="-0.02" saturation="1.0" />
             </effect>
          </Button>
-         <Text id="text_team3_points" layoutX="102.0" layoutY="563.0" strokeType="OUTSIDE" strokeWidth="0.0" text="100" textAlignment="CENTER">
+         <Text id="text_team3_points" fx:id="TextTeamPoint3" layoutX="102.0" layoutY="563.0" strokeType="OUTSIDE" strokeWidth="0.0" text="100" textAlignment="CENTER">
             <font>
                <Font size="17.0" />
             </font>
