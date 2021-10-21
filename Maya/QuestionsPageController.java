@@ -6,27 +6,24 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
-import java.io.IOException;
-
-public class HelloController {
+public class QuestionsPageController {
 
     @FXML
-    private Button btn1,btn2;
+    private Button backButton;
 
     @FXML
-    private void handleButtonAction (ActionEvent event) throws Exception {
+    private void backButtonAction (ActionEvent event) throws Exception {
         Stage stage;
         Parent root;
 
-        if(event.getSource()==btn1){
-            stage = (Stage) btn1.getScene().getWindow();
-            root = FXMLLoader.load(getClass().getResource("secondPage.fxml"));
+        if(event.getSource()==backButton){
+            stage = (Stage) backButton.getScene().getWindow();
+            root = FXMLLoader.load(getClass().getResource("Jeoparty.fxml"));
         }
         else{
-            stage = (Stage) btn2.getScene().getWindow();
+            stage = (Stage) backButton.getScene().getWindow();
             root = FXMLLoader.load(getClass().getResource("Jeoparty.fxml"));
         }
         Scene scene = new Scene(root);
@@ -34,7 +31,3 @@ public class HelloController {
         stage.show();
     }
 }
-
-
-
-
