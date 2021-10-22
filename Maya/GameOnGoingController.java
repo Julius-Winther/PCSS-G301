@@ -6,11 +6,57 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
+import java.awt.*;
+import java.util.Objects;
+
 public class GameOnGoingController {
+
+    public Text catagory1;
+    public Text catagory2;
+    public Text catagory3;
+    public Text catagory4;
+    public Text catagory5;
+
+    public Text text_team1;
+    public Text text_team2;
+    public Text text_team3;
+
+    public Button cat5_100;
+    public Button cat5_200;
+    public Button cat5_300;
+    public Button cat5_400;
+    public Button cat5_500;
+
+    public Button cat4_100;
+    public Button cat4_200;
+    public Button cat4_300;
+    public Button cat4_400;
+    public Button cat4_500;
+
+    public Button cat3_100;
+    public Button cat3_200;
+    public Button cat3_300;
+    public Button cat3_400;
+    public Button cat3_500;
+
+    public Button cat2_100;
+    public Button cat2_200;
+    public Button cat2_300;
+    public Button cat2_400;
+    public Button cat2_500;
+
+    public Button cat1_100;
+    public Button cat1_200;
+    public Button cat1_300;
+    public Button cat1_400;
+    public Button cat1_500;
+
+
     @FXML
-    private Button backButtonJeoparty, btn2;
+    private Button backButtonJeoparty;
 
     @FXML
     private void handleButtonAction(ActionEvent event) throws Exception {
@@ -19,27 +65,74 @@ public class GameOnGoingController {
 
         if (event.getSource() == backButtonJeoparty) {
             stage = (Stage) backButtonJeoparty.getScene().getWindow();
-            root = FXMLLoader.load(getClass().getResource("Jeoparty.fxml"));
+            root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Jeoparty.fxml")));
         } else {
             stage = (Stage) backButtonJeoparty.getScene().getWindow();
-            root = FXMLLoader.load(getClass().getResource("GameOnGoing.fxml"));
+            root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("GameOnGoing.fxml")));
         }
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
     }
 
+
     @FXML
     private Button btnAddPoint1, btnAddPoint2, btnAddPoint3;
+    @FXML
     private Button btnRemovePoint1, btnRemovePoint2, btnRemovePoint3;
 
     @FXML
-    private void pointButtonAction(ActionEvent event) throws Exception {
+    private Text textScore1, textScore2, textScore3;
 
+    public void pointButtonAction(ActionEvent event) {
+        //Team 1
         if (event.getSource() == btnAddPoint1) {
-            //textTeamPoint1 add...
-        } else {
+            //textScore1 += 100;
+            //textScore1.setText("200");
+        } else if (event.getSource() == btnRemovePoint1) {
+            textScore1.setText("0");
+        }
 
+        //Team 2
+        else if (event.getSource() == btnAddPoint2) {
+            textScore2.setText("200");
+        } else if (event.getSource() == btnRemovePoint2) {
+            textScore2.setText("0");
+        }
+
+        //Team 3
+        else if (event.getSource() == btnAddPoint3) {
+            textScore3.setText("200");
+        } else if (event.getSource() == btnRemovePoint3) {
+            textScore3.setText("0");
         }
     }
+
+
+
+    Label questionText;
+
+    @FXML
+    private void questionButtonAction(ActionEvent event) throws Exception {
+        Stage stage;
+        Parent root;
+
+        if (event.getSource() == cat1_100) {
+            stage = (Stage) cat1_100.getScene().getWindow();
+            root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("QuestionPage.fxml")));
+            questionText.setText("200");
+
+        } else if (event.getSource() == cat1_200) {
+            stage = (Stage) cat1_200.getScene().getWindow();
+            root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("QuestionPage.fxml")));
+        } else {
+            stage = (Stage) cat1_100.getScene().getWindow();
+            root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("GameOnGoing.fxml")));
+        }
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
 }
+
+

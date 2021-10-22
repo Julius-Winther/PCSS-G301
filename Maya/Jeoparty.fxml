@@ -14,40 +14,45 @@
     <padding>
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
     </padding>
-   <AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="600" prefWidth="1080">
-      <children>
-         <ImageView fitHeight="614.0" fitWidth="1093.0" layoutX="-7.0" layoutY="-6.0" pickOnBounds="true">
-            <image>
-               <Image url="https://cdn.discordapp.com/attachments/889864141534285864/897820654097821756/Main_page.png" />
-            </image></ImageView>
-          <Button fx:id="joinGameBtn" alignment="CENTER" layoutX="407.0" layoutY="325.0" onAction="#handleButtonAction" prefHeight="66.0" prefWidth="249.0" style="-fx-background-color: #FFF6E2;" text="Join Game" textAlignment="CENTER" textFill="#944110">
-            <font>
-               <Font name="Arial" size="30.0" />
-            </font>
-            <effect>
-               <DropShadow />
-            </effect>
-            <cursor>
-               <Cursor fx:constant="HAND" />
-            </cursor></Button>
-         <Button fx:id="hostGameBtn" alignment="CENTER" layoutX="407.0" layoutY="430.0" onAction="#handleButtonAction" prefHeight="66.0" prefWidth="249.0" style="-fx-background-color: #FFF6E2;" text="Host Game" textAlignment="CENTER" textFill="#944110">
-            <font>
-               <Font name="Arial" size="30.0" />
-            </font>
-            <opaqueInsets>
-               <Insets />
-            </opaqueInsets>
-            <effect>
-               <DropShadow />
-            </effect>
-            <cursor>
-               <Cursor fx:constant="HAND" />
-            </cursor></Button>
-         <Text layoutX="269.0" layoutY="118.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Jeoparty" textAlignment="CENTER" textOrigin="TOP" wrappingWidth="525.7949562072754" AnchorPane.leftAnchor="269.0" AnchorPane.rightAnchor="269.2050437927246">
-            <font>
-               <Font name="Bodoni MT" size="96.0" />
-            </font>
-         </Text>
-      </children>
-   </AnchorPane>
+    <AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="600" prefWidth="1080">
+        <ImageView fitHeight="614.0" fitWidth="1093.0" layoutX="-7.0" layoutY="-6.0" pickOnBounds="true">
+            <Image url="https://cdn.discordapp.com/attachments/889864141534285864/897820654097821756/Main_page.png"/>
+        </ImageView>
+        <Button fx:id="joinGameBtn" alignment="CENTER" layoutX="407.0" layoutY="325.0" onAction="#handleButtonAction"
+                prefHeight="66.0" prefWidth="249.0" style="-fx-background-color: #FFF6E2;" text="Join Game"
+                textAlignment="CENTER" textFill="#944110">
+          <font>
+              <Font name="Arial" size="30.0"/>
+          </font>
+          <effect>
+              <DropShadow/>
+          </effect>
+          <cursor>
+              <Cursor fx:constant="HAND"/>
+          </cursor>
+        </Button>
+        <Button fx:id="hostGameBtn" alignment="CENTER" layoutX="407.0" layoutY="430.0" onAction="#handleButtonAction"
+                prefHeight="66.0" prefWidth="249.0" style="-fx-background-color: #FFF6E2;" text="Host Game"
+                textAlignment="CENTER" textFill="#944110">
+           <font>
+               <Font name="Arial" size="30.0"/>
+           </font>
+           <opaqueInsets>
+               <Insets/>
+           </opaqueInsets>
+           <effect>
+               <DropShadow/>
+           </effect>
+           <cursor>
+               <Cursor fx:constant="HAND"/>
+           </cursor>
+        </Button>
+        <Text layoutX="269.0" layoutY="118.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Jeoparty"
+              textAlignment="CENTER" textOrigin="TOP" wrappingWidth="525.7949562072754" AnchorPane.leftAnchor="269.0"
+              AnchorPane.rightAnchor="269.2050437927246">
+           <font>
+               <Font name="Bodoni MT" size="96.0"/>
+           </font>
+        </Text>
+    </AnchorPane>
 </VBox>

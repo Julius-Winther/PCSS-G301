@@ -6,10 +6,9 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
-import java.io.IOException;
+import java.util.Objects;
 
 public class HomePageController {
 
@@ -23,13 +22,13 @@ public class HomePageController {
 
         if (event.getSource() == joinGameBtn) {
             stage = (Stage) joinGameBtn.getScene().getWindow();
-            root = FXMLLoader.load(getClass().getResource("JoinPageView.fxml"));
+            root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("JoinPageView.fxml")));
         } else if (event.getSource() == hostGameBtn) {
             stage = (Stage) hostGameBtn.getScene().getWindow();
-            root = FXMLLoader.load(getClass().getResource("QuestionPage.fxml"));
+            root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("QuestionPage.fxml")));
         } else {
             stage = (Stage) joinGameBtn.getScene().getWindow();
-            root = FXMLLoader.load(getClass().getResource("Jeoparty.fxml"));
+            root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Jeoparty.fxml")));
         }
         Scene scene = new Scene(root);
         stage.setScene(scene);
