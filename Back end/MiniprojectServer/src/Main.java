@@ -19,7 +19,7 @@ public class Main implements Serializable {
         ServerSocket server = new ServerSocket(port);
 
         while (true) {
-            Socket socket = server.accept();
+            Socket socket = server.accept();    //accepts clients
             numberOfClients++;
 
             InetAddress inetAddress = socket.getInetAddress();
@@ -28,31 +28,26 @@ public class Main implements Serializable {
             System.out.println("Client " + numberOfClients + "'s host name is: " + inetAddress.getHostName());
             System.out.println("Client " + numberOfClients + "'s IP-address is: " + inetAddress.getHostAddress() + "\n");
 
+            //> a thread is created for every single client
+            //> these threads will handle every in- and outputs from clients
             new Thread(
-                    new MyTask(socket, "Multithreaded Server")
+                    new AcceptingClientTask(socket, "Multithreaded Server")
             ).start();
+
+            //Sending all the questionblock variables
+            //game.transferBlockOut(socket, output);
+
+            //Receiving name of the first user
+            //game.loadPlayerInfo(socket, input);
+
+            //Receiving name and IP of host
+            //game.loadHostInfo(socket, input);
+
+            //Sending the info from player
+            //game.sendPlayerInfo(socket, output);
+
+            //Sending the info on host to player
+            //game.sendHostInfo(socket, output);
         }
-
-        System.out.println("Connection from " + socket + "!");
-
-        //Creating input and output streams
-        DataInputStream input = new DataInputStream(socket.getInputStream());
-        DataOutputStream output = new DataOutputStream(socket.getOutputStream());
-
-        //Sending all the questionblock variables
-        game.transferBlockOut(socket, output);
-
-        //Receiving name of the first user
-        game.loadPlayerInfo(socket, input);
-
-        //Receiving name and IP of host
-        game.loadHostInfo(socket, input);
-
-        //Sending the info from player
-        game.sendPlayerInfo(socket, output);
-
-        //Sending the info on host to player
-        game.sendHostInfo(socket, output);
-
     }
 }
