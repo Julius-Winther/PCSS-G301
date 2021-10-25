@@ -8,7 +8,7 @@ public class Main implements Serializable {
     public static void main(String args[]) throws IOException {
         //Creatin an object for the gam
         Game game =  new Game();
-        game.loadQuestions();
+        //game.loadQuestions();
 
         //Hosting the server
         int port = 8000;
@@ -16,7 +16,7 @@ public class Main implements Serializable {
 
         ServerSocket server = new ServerSocket(port);
         InetAddress inetAddress = InetAddress.getLocalHost();
-        System.out.println("Ask the dummy client to enter this IP address as the host name: " + inetAddress.getHostAddress());
+        System.out.println("Ask the dummy client to enter this IP address:\n" + inetAddress.getHostAddress() + "\nand this port number:\n" + port);
 
         while (true) {
             Socket socket = server.accept();    //accepts clients
