@@ -11,17 +11,18 @@ public class Main implements Serializable {
         game.loadQuestions();
 
         //Hosting the server
-        String host = "172.20.10.2";
-        int port = 9696;
+        int port = 8000;
         int numberOfClients = 0;
 
         ServerSocket server = new ServerSocket(port);
+        InetAddress inetAddress = InetAddress.getLocalHost();
+        System.out.println("Ask the dummy client to enter this IP address as the host name: " + inetAddress.getHostAddress());
 
         while (true) {
             Socket socket = server.accept();    //accepts clients
             numberOfClients++;
 
-            InetAddress inetAddress = socket.getInetAddress();
+            inetAddress = socket.getInetAddress();
 
             System.out.println("\nClient number " + numberOfClients + " joined!");
             System.out.println("Client " + numberOfClients + "'s host name is: " + inetAddress.getHostName());
