@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/PCSS-G301.iml" filepath="$PROJECT_DIR$/.idea/PCSS-G301.iml" />
+      <module fileurl="file://$PROJECT_DIR$/DummyClient.iml" filepath="$PROJECT_DIR$/DummyClient.iml" />
     </modules>
   </component>
 </project>

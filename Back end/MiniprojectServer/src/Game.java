@@ -16,7 +16,7 @@ public class Game {
     public String hostName;
 
     //QuestionBlock Variables
-    static ArrayList<QuestionBlock> questionBlock = new ArrayList<QuestionBlock>();
+    static ArrayList<QuestionBlock> questionBlocks = new ArrayList<QuestionBlock>();
     public static String question;
     public static String answer;
     public static int value;
@@ -66,7 +66,7 @@ public class Game {
 
         //Set a while loop for reading data as long as there is more data
         while(sc.hasNext()) {
-            //A for loop for every questionBlock
+            //A for loop for every questionBlocks
             for (int i = 0; i < 4; i++)
             {
                 if (i == 0) {
@@ -82,32 +82,26 @@ public class Game {
                     categoryId = Integer.parseInt(sc.next());
                 }
             }
-            questionBlock.add(new QuestionBlock(question, answer, value, categoryId));
+            questionBlocks.add(new QuestionBlock(question, answer, value, categoryId));
         }
         sc.close();  //closes the scanner
 
         //Printing out all the info in the console
-        for(int i = 0; i < questionBlock.size(); i++) {
-            System.out.println(questionBlock.get(i).toString());
+        for(int i = 0; i < questionBlocks.size(); i++) {
+            System.out.println(questionBlocks.get(i).toString());   //for debugging
         }
-
-
-
     }
 
       //Transfer questionblocks out to clients
       public void transferBlockOut(Socket socket, DataOutputStream output) throws IOException {
         //Letting client know how many loops it needs to run
-          System.out.println(questionBlock.size());
+          System.out.println(questionBlocks.size());
         //For loop sending information from questionblocks
-        for(int i = 0; i < questionBlock.size(); i++) {
-            output.writeUTF(questionBlock.get(i).getQuestion());
-            output.writeUTF(questionBlock.get(i).getAnswer());
-            output.writeInt(questionBlock.get(i).getValue());
-            output.writeInt(questionBlock.get(i).getCategoryId());
+        for(int i = 0; i < questionBlocks.size(); i++) {
+            output.writeUTF(questionBlocks.get(i).getQuestion());
+            output.writeUTF(questionBlocks.get(i).getAnswer());
+            output.writeInt(questionBlocks.get(i).getValue());
+            output.writeInt(questionBlocks.get(i).getCategoryId());
         }
     }
-
-
-
 }

@@ -5,7 +5,7 @@ public class QuestionBlock {
     public int categoryId;
     public boolean isUsed;
 
-//Constructor of questionBlock
+//Constructor of questionBlocks
     public QuestionBlock(String answer, String question, int value, int categoryId) {
         this.answer = answer;
         this.question = question;
