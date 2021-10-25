@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a0001848-c0d2-4bd4-a9db-d9d3e8a548ea" name="Changes" comment="" />
+    <list default="true" id="a0001848-c0d2-4bd4-a9db-d9d3e8a548ea" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../../mem.png" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -20,7 +22,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../MiniprojectServer" />
   </component>
   <component name="RunManager">
     <configuration name="Client" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -51,6 +53,7 @@
       <option name="presentableId" value="Default" />
       <updated>1634192811166</updated>
       <workItem from="1634192813497" duration="1108000" />
+      <workItem from="1635151635794" duration="55000" />
     </task>
     <servers />
   </component>
