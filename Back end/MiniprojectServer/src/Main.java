@@ -2,6 +2,7 @@ import java.io.*;
 import java.net.InetAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.util.ArrayList;
 
 public class Main implements Serializable {
 
@@ -18,11 +19,15 @@ public class Main implements Serializable {
         InetAddress inetAddress = InetAddress.getLocalHost();
         System.out.println("Ask the dummy client to enter this IP address:\n" + inetAddress.getHostAddress() + "\nand this port number:\n" + port);
 
+        Chat chat = new Chat();
+
         while (true) {
             Socket socket = server.accept();    //accepts clients
+            chat.addSocket(socket);
             numberOfClients++;
 
             inetAddress = socket.getInetAddress();
+            System.out.println("InetAddress declared!");
 
             System.out.println("\nClient number " + numberOfClients + " joined!");
             System.out.println("Client " + numberOfClients + "'s host name is: " + inetAddress.getHostName());
@@ -31,8 +36,9 @@ public class Main implements Serializable {
             //> a thread is created for every single client
             //> these threads will handle every in- and outputs from clients
             new Thread(
-                    new AcceptingClientTask(socket, "Multithreaded Server")
+                    new AcceptingClientTask(socket, chat, "Multithreaded Server")
             ).start();
+            System.out.println("Threading done!");
 
             //Sending all the questionblock variables
             //game.transferBlockOut(socket, output);
