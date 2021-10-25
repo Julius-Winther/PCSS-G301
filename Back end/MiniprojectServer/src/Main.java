@@ -6,7 +6,6 @@ import java.net.Socket;
 public class Main implements Serializable {
 
     public static void main(String args[]) throws IOException {
-
         //Creatin an object for the gam
         Game game =  new Game();
         game.loadQuestions();
