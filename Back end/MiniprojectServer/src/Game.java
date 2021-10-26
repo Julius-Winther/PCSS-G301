@@ -24,10 +24,10 @@ public class Game {
 
     //Player voids
     //Load player info
-    public void loadPlayerInfo(Socket socket, DataInputStream input) throws IOException {
+    /*public void loadPlayerInfo(Socket socket, DataInputStream input) throws IOException {
         playerName = input.readUTF();
         players.add(new Player(playerId, playerName, 0));
-    }
+    }*/
     //Send player info
     public void sendPlayerInfo(Socket socket, DataOutputStream output) throws IOException {
         for(int i = 0; i < players.size(); i++) {

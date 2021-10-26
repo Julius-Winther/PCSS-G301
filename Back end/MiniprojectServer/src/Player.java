@@ -1,17 +1,22 @@
+import java.net.Socket;
+
 public class Player {
 
 
 
-    public int playerId;
-    public String name;
-    public int points;
-    public boolean isActive;
+    int playerId;
+    String name;
+    int points;
+    boolean isActive;
+    Socket socket;
+
 
     //Constructor of player
-    public Player(int playerId, String name, int points) {
+    public Player(int playerId, String name, int points, Socket socket) {
         this.playerId = playerId;
         this.name = name;
         this.points = points;
+        this.socket = socket;
     }
 
     //Getters and Setters for the variables
