@@ -9,7 +9,6 @@ import javafx.scene.control.Button;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
-import java.awt.*;
 import java.util.Objects;
 
 public class GameOnGoingController {
@@ -83,34 +82,42 @@ public class GameOnGoingController {
 
     @FXML
     private Text textScore1, textScore2, textScore3;
+    public int intValue1 = 0;
+    public int intValue2 = 0;
+    public int intValue3 = 0;
 
     public void pointButtonAction(ActionEvent event) {
         //Team 1
         if (event.getSource() == btnAddPoint1) {
-            //textScore1 += 100;
-            //textScore1.setText("200");
+            intValue1 += 100;
+            textScore1.setText("" +intValue1);
+
         } else if (event.getSource() == btnRemovePoint1) {
-            textScore1.setText("0");
+            intValue1 -= 100;
+            textScore1.setText("" +intValue1);
         }
 
         //Team 2
         else if (event.getSource() == btnAddPoint2) {
-            textScore2.setText("200");
+            intValue2 += 100;
+            textScore2.setText("" +intValue2);
         } else if (event.getSource() == btnRemovePoint2) {
-            textScore2.setText("0");
+            intValue2 -= 100;
+            textScore2.setText("" +intValue2);
         }
 
         //Team 3
         else if (event.getSource() == btnAddPoint3) {
-            textScore3.setText("200");
+            intValue3 += 100;
+            textScore3.setText("" +intValue3);
         } else if (event.getSource() == btnRemovePoint3) {
-            textScore3.setText("0");
+            intValue3 -= 100;
+            textScore3.setText("" +intValue3);
         }
     }
 
 
 
-    Label questionText;
 
     @FXML
     private void questionButtonAction(ActionEvent event) throws Exception {
@@ -120,10 +127,13 @@ public class GameOnGoingController {
         if (event.getSource() == cat1_100) {
             stage = (Stage) cat1_100.getScene().getWindow();
             root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("QuestionPage.fxml")));
-            questionText.setText("200");
 
         } else if (event.getSource() == cat1_200) {
             stage = (Stage) cat1_200.getScene().getWindow();
+            root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("QuestionPage.fxml")));
+
+        } else if (event.getSource() == cat1_300) {
+            stage = (Stage) cat1_300.getScene().getWindow();
             root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("QuestionPage.fxml")));
         } else {
             stage = (Stage) cat1_100.getScene().getWindow();

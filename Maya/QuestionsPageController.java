@@ -29,4 +29,10 @@ public class QuestionsPageController {
         stage.setScene(scene);
         stage.show();
     }
+
+    @FXML
+    private void changeQuestion (ActionEvent event) throws Exception {
+
+    }
 }
+
