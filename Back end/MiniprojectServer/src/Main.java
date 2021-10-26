@@ -15,15 +15,17 @@ public class Main implements Serializable {
         int port = 8000;
         int numberOfClients = 0;
 
+        //> this prints out the information (ip and port) that is needed in order for the client(s) to join the server
         ServerSocket server = new ServerSocket(port);
         InetAddress inetAddress = InetAddress.getLocalHost();
         System.out.println("Ask the dummy client to enter this IP address:\n" + inetAddress.getHostAddress() + "\nand this port number:\n" + port);
 
+        PlayerHandler playerHandler = new PlayerHandler();
         Chat chat = new Chat();
 
         while (true) {
             Socket socket = server.accept();    //accepts clients
-            chat.addSocket(socket);
+
             numberOfClients++;
 
             inetAddress = socket.getInetAddress();

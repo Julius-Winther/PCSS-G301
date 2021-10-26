@@ -25,7 +25,6 @@ public class AcceptingClientTask implements Runnable {
 
     @Override
     public void run() {
-        //> The loan will be calculated in here
         try {
             //Creating input and output streams
             DataInputStream input = new DataInputStream(socket.getInputStream());
