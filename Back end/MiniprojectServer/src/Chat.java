@@ -31,6 +31,8 @@ public class Chat {
         sockets.add(socket);
     }
 
+
+
     public void printMessage() {
         System.out.println("Printing message...");
     }
