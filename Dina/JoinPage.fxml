@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="600.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="frontendminiproject.frontendminiprojectdina.Main">
+    <ImageView fitHeight="600.0" fitWidth="1080.0" pickOnBounds="true">
+        <image>
+            <Image url="https://media.discordapp.net/attachments/889864141534285864/902528602619387904/JeopartyBG.png?width=1135&amp;height=638" />
+        </image>
+    </ImageView>
+    <TextField fx:id="hostCodeTF" alignment="CENTER" layoutX="315.0" layoutY="260.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="0.0" minWidth="0.0" prefHeight="80.0" prefWidth="450.0" promptText="Join Code" style="-fx-background-color: #FFF6E2; -fx-text-fill: #944110;" text="Join Code">
+        <font>
+            <Font name="Arial Bold" size="35.0" />
+        </font>
+        <effect>
+            <DropShadow offsetY="10.0">
+                <color>
+                    <Color red="0.5803921818733215" green="0.2549019753932953" blue="0.062745101749897" />
+                </color></DropShadow>
+        </effect>
+    </TextField>
+
+</AnchorPane>
