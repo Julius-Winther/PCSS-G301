@@ -10,16 +10,13 @@ public class AcceptingClientTask implements Runnable {
     Socket socket = null;
     String serverText = "";
 
-    Chat chat;
-
     InetAddress inetAddress;
 
     Scanner scanner = new Scanner(System.in);
 
-    AcceptingClientTask(Socket socket, Chat chat, String serverText) {
+    AcceptingClientTask(Socket socket, String serverText) {
         this.socket = socket;
         this.serverText = serverText;
-        this.chat = chat;
         inetAddress = socket.getInetAddress();
     }
 
@@ -30,11 +27,6 @@ public class AcceptingClientTask implements Runnable {
             DataInputStream input = new DataInputStream(socket.getInputStream());
             DataOutputStream output = new DataOutputStream(socket.getOutputStream());
 
-            while(true) {
-                String userInput = input.readUTF();
-                if(!userInput.equals("")) {
-                    chat.addMessage(userInput);
-                }
             }
 
         } catch (IOException e) {

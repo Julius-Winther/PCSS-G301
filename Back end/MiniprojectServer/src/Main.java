@@ -20,9 +20,6 @@ public class Main implements Serializable {
         InetAddress inetAddress = InetAddress.getLocalHost();
         System.out.println("Ask the dummy client to enter this IP address:\n" + inetAddress.getHostAddress() + "\nand this port number:\n" + port);
 
-        PlayerHandler playerHandler = new PlayerHandler();
-        Chat chat = new Chat();
-
         while (true) {
             Socket socket = server.accept();    //accepts clients
 
@@ -38,7 +35,7 @@ public class Main implements Serializable {
             //> a thread is created for every single client
             //> these threads will handle every in- and outputs from clients
             new Thread(
-                    new AcceptingClientTask(socket, chat, "Multithreaded Server")
+                    new AcceptingClientTask(socket, "Multithreaded Server")
             ).start();
             System.out.println("Threading done!");
 
