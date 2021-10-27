@@ -11,12 +11,12 @@ public class Main implements Serializable {
         Game game =  new Game();
         //game.loadQuestions();
 
-        //Creating an object for the Host
-        Host host = new Host();
-
         //Hosting the server
         int port = 8000;
         int numberOfClients = 0;
+
+        String name = name;
+        String ip = ip;
 
         //> this prints out the information (ip and port) that is needed in order for the client(s) to join the server
         ServerSocket server = new ServerSocket(port);
@@ -29,6 +29,7 @@ public class Main implements Serializable {
             numberOfClients++;
 
             if (numberOfClients == 1) {
+                Host host = new Host(name, ip);
 
             }
 
