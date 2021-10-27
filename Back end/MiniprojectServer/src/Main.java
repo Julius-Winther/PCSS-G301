@@ -11,6 +11,9 @@ public class Main implements Serializable {
         Game game =  new Game();
         //game.loadQuestions();
 
+        //Creating an object for the Host
+        Host host = new Host();
+
         //Hosting the server
         int port = 8000;
         int numberOfClients = 0;
@@ -24,6 +27,10 @@ public class Main implements Serializable {
             Socket socket = server.accept();    //accepts clients
 
             numberOfClients++;
+
+            if (numberOfClients == 1) {
+
+            }
 
             inetAddress = socket.getInetAddress();
             System.out.println("InetAddress declared!");
