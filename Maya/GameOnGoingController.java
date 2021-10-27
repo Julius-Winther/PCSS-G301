@@ -86,37 +86,36 @@ public class GameOnGoingController {
     public int intValue2 = 0;
     public int intValue3 = 0;
 
+
     public void pointButtonAction(ActionEvent event) {
         //Team 1
         if (event.getSource() == btnAddPoint1) {
             intValue1 += 100;
-            textScore1.setText("" +intValue1);
+            textScore1.setText("" + intValue1);
 
         } else if (event.getSource() == btnRemovePoint1) {
             intValue1 -= 100;
-            textScore1.setText("" +intValue1);
+            textScore1.setText("" + intValue1);
         }
 
         //Team 2
         else if (event.getSource() == btnAddPoint2) {
             intValue2 += 100;
-            textScore2.setText("" +intValue2);
+            textScore2.setText("" + intValue2);
         } else if (event.getSource() == btnRemovePoint2) {
             intValue2 -= 100;
-            textScore2.setText("" +intValue2);
+            textScore2.setText("" + intValue2);
         }
 
         //Team 3
         else if (event.getSource() == btnAddPoint3) {
             intValue3 += 100;
-            textScore3.setText("" +intValue3);
+            textScore3.setText("" + intValue3);
         } else if (event.getSource() == btnRemovePoint3) {
             intValue3 -= 100;
-            textScore3.setText("" +intValue3);
+            textScore3.setText("" + intValue3);
         }
     }
-
-
 
 
     @FXML
@@ -124,21 +123,117 @@ public class GameOnGoingController {
         Stage stage;
         Parent root;
 
+        //Category1
         if (event.getSource() == cat1_100) {
             stage = (Stage) cat1_100.getScene().getWindow();
-            root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("QuestionPage.fxml")));
+            root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Category1.fxml")));
 
         } else if (event.getSource() == cat1_200) {
             stage = (Stage) cat1_200.getScene().getWindow();
-            root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("QuestionPage.fxml")));
+            root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Category1.fxml")));
 
         } else if (event.getSource() == cat1_300) {
             stage = (Stage) cat1_300.getScene().getWindow();
-            root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("QuestionPage.fxml")));
+            root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Category1.fxml")));
+
+        } else if (event.getSource() == cat1_400) {
+            stage = (Stage) cat1_400.getScene().getWindow();
+            root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Category1.fxml")));
+
+        } else if (event.getSource() == cat1_500) {
+            stage = (Stage) cat1_500.getScene().getWindow();
+            root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Category1.fxml")));
+
+            //Category2
+        } else if (event.getSource() == cat2_100) {
+            stage = (Stage) cat2_100.getScene().getWindow();
+            root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Category2.fxml")));
+
+        } else if (event.getSource() == cat2_200) {
+            stage = (Stage) cat2_200.getScene().getWindow();
+            root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Category2.fxml")));
+
+        } else if (event.getSource() == cat2_300) {
+            stage = (Stage) cat2_300.getScene().getWindow();
+            root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Category2.fxml")));
+
+        } else if (event.getSource() == cat2_400) {
+            stage = (Stage) cat2_400.getScene().getWindow();
+            root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Category2.fxml")));
+
+        } else if (event.getSource() == cat2_500) {
+            stage = (Stage) cat2_500.getScene().getWindow();
+            root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Category2.fxml")));
+
+            //Category3
+        } else if (event.getSource() == cat3_100) {
+            stage = (Stage) cat3_100.getScene().getWindow();
+            root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Category3.fxml")));
+
+        } else if (event.getSource() == cat3_200) {
+            stage = (Stage) cat3_200.getScene().getWindow();
+            root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Category3.fxml")));
+
+        } else if (event.getSource() == cat3_300) {
+            stage = (Stage) cat3_300.getScene().getWindow();
+            root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Category3.fxml")));
+
+        } else if (event.getSource() == cat3_400) {
+            stage = (Stage) cat3_400.getScene().getWindow();
+            root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Category3.fxml")));
+
+        } else if (event.getSource() == cat3_500) {
+            stage = (Stage) cat3_500.getScene().getWindow();
+            root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Category3.fxml")));
+
+            //Category4
+        } else if (event.getSource() == cat4_100) {
+            stage = (Stage) cat4_100.getScene().getWindow();
+            root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Category4.fxml")));
+
+        } else if (event.getSource() == cat4_200) {
+            stage = (Stage) cat4_200.getScene().getWindow();
+            root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Category4.fxml")));
+
+        } else if (event.getSource() == cat4_300) {
+            stage = (Stage) cat4_300.getScene().getWindow();
+            root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Category4.fxml")));
+
+        } else if (event.getSource() == cat4_400) {
+            stage = (Stage) cat4_400.getScene().getWindow();
+            root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Category4.fxml")));
+
+        } else if (event.getSource() == cat4_500) {
+            stage = (Stage) cat4_500.getScene().getWindow();
+            root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Category4.fxml")));
+
+            //Category5
+        } else if (event.getSource() == cat5_100) {
+            stage = (Stage) cat5_100.getScene().getWindow();
+            root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Category5.fxml")));
+
+        } else if (event.getSource() == cat5_200) {
+            stage = (Stage) cat5_200.getScene().getWindow();
+            root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Category5.fxml")));
+
+        } else if (event.getSource() == cat5_300) {
+            stage = (Stage) cat5_300.getScene().getWindow();
+            root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Category5.fxml")));
+
+        } else if (event.getSource() == cat5_400) {
+            stage = (Stage) cat5_400.getScene().getWindow();
+            root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Category5.fxml")));
+
+        } else if (event.getSource() == cat5_500) {
+            stage = (Stage) cat5_500.getScene().getWindow();
+            root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Category5.fxml")));
+
+            
         } else {
             stage = (Stage) cat1_100.getScene().getWindow();
             root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("GameOnGoing.fxml")));
         }
+
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();

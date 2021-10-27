@@ -25,7 +25,7 @@ public class HomePageController {
             root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("JoinPageView.fxml")));
         } else if (event.getSource() == hostGameBtn) {
             stage = (Stage) hostGameBtn.getScene().getWindow();
-            root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("QuestionPage.fxml")));
+            root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Category2.fxml")));
         } else {
             stage = (Stage) joinGameBtn.getScene().getWindow();
             root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Jeoparty.fxml")));
