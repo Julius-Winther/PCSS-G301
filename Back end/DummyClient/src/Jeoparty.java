@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.net.Socket;
 
 public class Jeoparty {
-
     Socket socket;
     DataOutputStream output;
     DataInputStream input;
@@ -21,5 +20,15 @@ public class Jeoparty {
     public String getMessage() throws IOException {
         input = new DataInputStream(socket.getInputStream());
         return input.readUTF();
+    }
+
+    public void sendNumber(int number) throws IOException {
+        output = new DataOutputStream(socket.getOutputStream());
+        output.writeInt(number);
+    }
+
+    public int getNumber() throws IOException {
+        input = new DataInputStream(socket.getInputStream());
+        return input.readInt();
     }
 }
