@@ -22,7 +22,7 @@ public class AcceptingClientTask implements Runnable {
 
     @Override
     public void run() {
-        try {
+        /*try {
             //Creating input and output streams
             DataInputStream input = new DataInputStream(socket.getInputStream());
             DataOutputStream output = new DataOutputStream(socket.getOutputStream());
@@ -32,6 +32,6 @@ public class AcceptingClientTask implements Runnable {
         } catch (IOException e) {
             e.printStackTrace();
             System.out.println("Some in-/output went wrong!");
-        }
+        }*/
     }
 }
