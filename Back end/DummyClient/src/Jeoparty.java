@@ -3,7 +3,7 @@ import java.io.DataOutputStream;
 import java.io.IOException;
 import java.net.Socket;
 
-public class GameInstance {
+public class Jeoparty {
 
     Socket socket;
     DataOutputStream output;
