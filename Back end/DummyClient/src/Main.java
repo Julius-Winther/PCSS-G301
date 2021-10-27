@@ -20,6 +20,7 @@ public class Main {
                 if(!userInput.equals("")) { //only if the user sents something that is NOT blank space, the following
                     // lines will be executed
                     jeoparty.sendMessage(userInput);    //the name is sent to the server
+                    System.out.println(jeoparty.getMessage());
                 }
             }
             //> if this client has not joined
