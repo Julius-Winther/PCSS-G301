@@ -316,7 +316,7 @@
             </Button>
         </VBox>
         <VBox layoutX="912.0" layoutY="98.0" prefHeight="500.0" prefWidth="154.0" AnchorPane.rightAnchor="12.0">
-            <Button fx:id="cat5_100" mnemonicParsing="false" onAction="#questionButtonAction" prefHeight="100.0" prefWidth="155.0" text="100">
+            <Button fx:id="cat5_100" mnemonicParsing="false" onAction="#changeQuestionText" prefHeight="100.0" prefWidth="155.0" text="100">
                 <font>
                     <Font size="25.0" />
                 </font>

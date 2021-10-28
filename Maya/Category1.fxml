@@ -14,11 +14,11 @@
     <AnchorPane prefHeight="600" prefWidth="1080">
         <children>
             <Rectangle id="background" arcHeight="5.0" arcWidth="5.0" fill="#fb7c2c" height="600" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="1080" AnchorPane.leftAnchor="0.0" />
-            <Text fx:id="questionText" fill="WHITE" layoutX="191.0" layoutY="242.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Question" textAlignment="CENTER" wrappingWidth="697.9999389648438">
+            <Label fx:id="questionText" layoutX="464.0" layoutY="244.0" text="Question" textAlignment="CENTER">
                 <font>
                     <Font size="38.0" />
                 </font>
-            </Text>
+            </Label>
             <Button fx:id="backButton" cancelButton="true" layoutX="505.0" layoutY="512.0" mnemonicParsing="false" onAction="#backButtonAction" style="-fx-background-color: #FFF6E2;" text="Back" textFill="#944110" wrapText="true">
                 <font>
                     <Font size="20.0" />

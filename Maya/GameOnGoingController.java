@@ -6,12 +6,34 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.util.Objects;
 
+
 public class GameOnGoingController {
+
+    public void changeQuestionText(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("GameOnGoing.fxml"));
+        Parent tableViewParent = loader.load();
+
+        Scene tableViewScene = new Scene(tableViewParent);
+
+        //access the controller and call a method
+        Category1Controller controller = loader.getController();
+        controller.initData(AnchorPane.getSelectedItem());
+
+        //This line gets the Stage information
+        Stage window = (Stage) cat1_100.getScene().getWindow();
+
+        window.setScene(tableViewScene);
+        window.show();
+    }
+
 
     public Text catagory1;
     public Text catagory2;
@@ -228,7 +250,7 @@ public class GameOnGoingController {
             stage = (Stage) cat5_500.getScene().getWindow();
             root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Category5.fxml")));
 
-            
+
         } else {
             stage = (Stage) cat1_100.getScene().getWindow();
             root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("GameOnGoing.fxml")));
