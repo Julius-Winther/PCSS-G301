@@ -10,10 +10,12 @@ public class Host {
     int points;
     DataInputStream input;
     DataOutputStream output;
+    Socket socket;
 
-    public Host(String name) {
+    public Host(String name, Socket socket) {
         this.name = name;
         this.ip = ip;
+        this.socket = socket;
     }
 
     //Host functions

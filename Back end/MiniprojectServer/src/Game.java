@@ -41,7 +41,7 @@ public class Game {
     public void loadHostInfo(Socket socket, DataInputStream input) throws IOException {
         hostName = input.readUTF();
         IP = input.readUTF();
-        Host onlyHost = new Host(IP);
+        //Host onlyHost = new Host(IP);
     }
 
     public void sendHostInfo(Socket socket, DataOutputStream output) throws IOException {
