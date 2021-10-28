@@ -15,9 +15,6 @@ public class Main implements Serializable {
         int port = 8000;
         int numberOfClients = 0;
 
-        String name = name;
-        String ip = ip;
-
         //> this prints out the information (ip and port) that is needed in order for the client(s) to join the server
         ServerSocket server = new ServerSocket(port);
         InetAddress inetAddress = InetAddress.getLocalHost();
@@ -27,11 +24,6 @@ public class Main implements Serializable {
             Socket socket = server.accept();    //accepts clients
 
             numberOfClients++;
-
-            if (numberOfClients == 1) {
-                Host host = new Host(name, ip);
-
-            }
 
             inetAddress = socket.getInetAddress();
             System.out.println("InetAddress declared!");
@@ -43,7 +35,7 @@ public class Main implements Serializable {
             //> a thread is created for every single client
             //> these threads will handle every in- and outputs from clients
             new Thread(
-                    new AcceptingClientTask(socket, "Multithreaded Server")
+                    new ClientTask(socket, "Multithreaded Server", numberOfClients, inetAddress.getHostAddress())
             ).start();
             System.out.println("Threading done!");
 

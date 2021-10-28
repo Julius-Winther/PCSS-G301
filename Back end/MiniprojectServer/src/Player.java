@@ -1,3 +1,5 @@
+import java.io.DataOutputStream;
+import java.io.IOException;
 import java.net.Socket;
 
 public class Player {
@@ -13,6 +15,13 @@ public class Player {
         this.name = name;
         this.points = points;
     }
+
+    //Data output from Server to Player
+    public void sendPlayerInfo(DataOutputStream output, String hostName) throws IOException {
+        output.writeUTF("You are player number: " + playerId + "Have fun!\n" + "This is the name of you awesome host: " + hostName);
+
+    }
+
 
     //Getters and Setters for the variables
     public int getPlayerId() {
