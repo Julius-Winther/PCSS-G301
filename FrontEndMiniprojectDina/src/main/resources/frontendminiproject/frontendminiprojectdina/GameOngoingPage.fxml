@@ -34,6 +34,16 @@
                  <Font name="Arial Bold" size="13.0" />
              </font>
          </Text>
+   <Text fx:id="text_team311" layoutX="94.0" layoutY="181.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Team 1" textAlignment="CENTER">
+      <font>
+         <Font name="Calibri Bold" size="15.0" />
+      </font>
+   </Text>
+   <Text fx:id="text_team31" layoutX="89.0" layoutY="364.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Team 2" textAlignment="CENTER">
+      <font>
+         <Font name="Calibri Bold" size="15.0" />
+      </font>
+   </Text>
          <Circle fill="#fff6e2" layoutX="117.0" layoutY="120.0" radius="40.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0">
       <effect>
          <InnerShadow choke="0.07" height="10.0" offsetY="5.0" radius="4.5" width="10.0">
@@ -42,29 +52,6 @@
             </color>
          </InnerShadow>
       </effect></Circle>
-         <Rectangle arcHeight="5.0" fill="WHITE" height="30.0" layoutX="65.0" layoutY="194.0" strokeMiterLimit="0.0" strokeType="INSIDE" strokeWidth="0.0" width="99.0" />
-         <Button fx:id="PBPlus1" accessibleRole="INCREMENT_BUTTON" layoutX="151.0" layoutY="194.0" mnemonicParsing="false" onAction="#pointButtonAction" prefHeight="31.0" prefWidth="31.0" style="-fx-background-color: #199753;" text="+" textFill="WHITE" wrapText="true">
-             <font>
-                 <Font name="Calibri" size="15.0" />
-             </font>
-         </Button>
-         <Circle fill="#fff6e2" layoutX="114.0" layoutY="472.0" radius="40.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0">
-      <effect>
-         <InnerShadow height="10.0" offsetY="5.0" radius="4.5" width="10.0">
-            <color>
-               <Color red="0.5803921818733215" green="0.2549019753932953" blue="0.062745101749897" />
-            </color>
-         </InnerShadow>
-      </effect></Circle>
-         <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="30.0" layoutX="64.0" layoutY="375.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="99.0" />
-         <Button fx:id="PBPlus2" layoutX="148.0" layoutY="375.0" mnemonicParsing="false" onAction="#pointButtonAction" prefHeight="31.0" prefWidth="31.0" style="-fx-background-color: #199753;" text="+" textAlignment="CENTER" textFill="WHITE" wrapText="true">
-             <font>
-                 <Font name="System Bold" size="15.0" />
-             </font>
-             <cursor>
-                 <Cursor fx:constant="HAND" />
-             </cursor>
-         </Button>
          <Circle fill="#fff6e2" layoutX="114.0" layoutY="304.0" radius="40.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0">
       <effect>
          <InnerShadow height="10.0" offsetY="5.0" radius="4.5" width="10.0">
@@ -73,8 +60,22 @@
             </color>
          </InnerShadow>
       </effect></Circle>
-         <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="30.0" layoutX="65.0" layoutY="542.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="99.0" />
-         <Button fx:id="PBPlus3" layoutX="148.0" layoutY="541.0" mnemonicParsing="false" onAction="#pointButtonAction" prefHeight="31.0" prefWidth="31.0" style="-fx-background-color: #199753;" text="+" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+         <Circle fill="#fff6e2" layoutX="114.0" layoutY="472.0" radius="40.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0">
+      <effect>
+         <InnerShadow height="10.0" offsetY="5.0" radius="4.5" width="10.0">
+            <color>
+               <Color red="0.5803921818733215" green="0.2549019753932953" blue="0.062745101749897" />
+            </color>
+         </InnerShadow>
+      </effect></Circle>
+         <Rectangle arcHeight="5.0" fill="WHITE" height="30.0" layoutX="65.0" layoutY="194.0" strokeMiterLimit="0.0" strokeType="INSIDE" strokeWidth="0.0" width="99.0" />
+         <Button fx:id="PBPlus1" accessibleRole="INCREMENT_BUTTON" layoutX="151.0" layoutY="194.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="31.0" prefWidth="31.0" style="-fx-background-color: #199753;" text="+" textFill="WHITE" wrapText="true">
+             <font>
+                 <Font name="Calibri" size="15.0" />
+             </font>
+         </Button>
+         <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="30.0" layoutX="64.0" layoutY="375.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="99.0" />
+         <Button fx:id="PBPlus2" layoutX="148.0" layoutY="375.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="31.0" prefWidth="31.0" style="-fx-background-color: #199753;" text="+" textAlignment="CENTER" textFill="WHITE" wrapText="true">
              <font>
                  <Font name="System Bold" size="15.0" />
              </font>
@@ -82,7 +83,16 @@
                  <Cursor fx:constant="HAND" />
              </cursor>
          </Button>
-         <Button fx:id="PBMinus2" layoutX="49.0" layoutY="375.0" mnemonicParsing="false" onAction="#pointButtonAction" prefHeight="31.0" prefWidth="31.0" style="-fx-background-color: #971919;" text="-" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+         <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="30.0" layoutX="65.0" layoutY="542.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="99.0" />
+         <Button fx:id="PBPlus3" layoutX="148.0" layoutY="541.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="31.0" prefWidth="31.0" style="-fx-background-color: #199753;" text="+" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+             <font>
+                 <Font name="System Bold" size="15.0" />
+             </font>
+             <cursor>
+                 <Cursor fx:constant="HAND" />
+             </cursor>
+         </Button>
+         <Button fx:id="PBMinus2" layoutX="49.0" layoutY="375.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="31.0" prefWidth="31.0" style="-fx-background-color: #971919;" text="-" textAlignment="CENTER" textFill="WHITE" wrapText="true">
              <font>
                  <Font name="Calibri Bold" size="15.0" />
              </font>
@@ -90,17 +100,12 @@
                  <Cursor fx:constant="HAND" />
              </cursor>
          </Button>
-         <Text fx:id="textScore1" layoutX="97.0" layoutY="394.0" strokeType="OUTSIDE" strokeWidth="0.0" text="100" textAlignment="CENTER">
-             <font>
-                 <Font name="Calibri Bold" size="15.0" />
-             </font>
-         </Text>
-   <Button fx:id="PBMinus1" accessibleRole="INCREMENT_BUTTON" layoutX="50.0" layoutY="194.0" mnemonicParsing="false" onAction="#pointButtonAction" prefHeight="31.0" prefWidth="31.0" style="-fx-background-color: #971919;" text="-" textFill="WHITE" wrapText="true">
+   <Button fx:id="PBMinus1" accessibleRole="INCREMENT_BUTTON" layoutX="50.0" layoutY="194.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="31.0" prefWidth="31.0" style="-fx-background-color: #971919;" text="-" textFill="WHITE" wrapText="true">
       <font>
          <Font name="Calibri Bold" size="15.0" />
       </font>
    </Button>
-   <Button fx:id="PBMinus3" layoutX="50.0" layoutY="542.0" mnemonicParsing="false" onAction="#pointButtonAction" prefHeight="31.0" prefWidth="31.0" style="-fx-background-color: #971919;" text="-" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+   <Button fx:id="PBMinus3" layoutX="50.0" layoutY="542.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="31.0" prefWidth="31.0" style="-fx-background-color: #971919;" text="-" textAlignment="CENTER" textFill="WHITE" wrapText="true">
       <font>
          <Font name="Calibri Bold" size="15.0" />
       </font>
@@ -108,16 +113,6 @@
          <Cursor fx:constant="HAND" />
       </cursor>
    </Button>
-   <Text fx:id="text_team31" layoutX="89.0" layoutY="364.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Team 2" textAlignment="CENTER">
-      <font>
-         <Font name="Calibri Bold" size="15.0" />
-      </font>
-   </Text>
-   <Text fx:id="text_team311" layoutX="94.0" layoutY="181.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Team 1" textAlignment="CENTER">
-      <font>
-         <Font name="Calibri Bold" size="15.0" />
-      </font>
-   </Text>
    <HBox alignment="CENTER" fillHeight="false" layoutX="237.0" layoutY="95.0" prefHeight="479.0" prefWidth="834.0" scaleShape="false">
       <children>
          <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffffff00" height="200.0" stroke="TRANSPARENT" strokeType="INSIDE" width="21.0" />
@@ -371,4 +366,19 @@
                </Text>
       </children>
    </HBox>
+         <Text fx:id="textScore1" layoutX="82.0" layoutY="396.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" textAlignment="CENTER" wrappingWidth="63.99999999999997">
+             <font>
+                 <Font name="Calibri Bold" size="15.0" />
+             </font>
+         </Text>
+   <Text fx:id="textScore11" layoutX="81.0" layoutY="215.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" textAlignment="CENTER" wrappingWidth="71.33333333333331">
+      <font>
+         <Font name="Calibri Bold" size="15.0" />
+      </font>
+   </Text>
+   <Text fx:id="textScore12" layoutX="78.0" layoutY="562.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" textAlignment="CENTER" wrappingWidth="71.33333333333331">
+      <font>
+         <Font name="Calibri Bold" size="15.0" />
+      </font>
+   </Text>
 </AnchorPane>
