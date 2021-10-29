@@ -22,6 +22,12 @@ public class Main {
                     jeoparty.sendMessage(userInput);    //the name is sent to the server
                     System.out.println(jeoparty.getMessage());
                 }
+
+                boolean gameHasStarted = jeoparty.getBoolean();
+                if(gameHasStarted) {
+                    System.out.println("Game has started");
+                    break;
+                }
             }
             //> if this client has not joined
             else {
