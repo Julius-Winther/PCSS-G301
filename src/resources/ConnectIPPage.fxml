@@ -13,7 +13,7 @@
          <Image url="https://media.discordapp.net/attachments/889864141534285864/902528602619387904/JeopartyBG.png?width=1135&amp;height=638" />
       </image>
    </ImageView>
-    <Button fx:id="connectButton" alignment="CENTER" contentDisplay="CENTER" layoutX="416.0" layoutY="405.0" onAction="#connectButtonPressed" prefHeight="66.0" prefWidth="249.0" style="-fx-background-color: #FFF6E2;" text="Join Game" textFill="#944110">
+    <Button fx:id="connectButton" alignment="CENTER" contentDisplay="CENTER" layoutX="416.0" layoutY="405.0" onAction="#connectButtonPressed" prefHeight="66.0" prefWidth="249.0" style="-fx-background-color: #FFF6E2;" text="Connect" textFill="#944110">
         <font>
             <Font name="Arial Bold" size="30.0" />
         </font>
@@ -35,5 +35,16 @@
       <font>
          <Font name="Arial Black" size="24.0" />
       </font></TextField>
-   <TextField layoutX="479.0" layoutY="207.0" />
+   <TextField fx:id="ipField1" alignment="CENTER" layoutX="259.0" layoutY="147.0" prefHeight="83.0" prefWidth="554.0" promptText="Insert IP" style="-fx-text-fill: #944110;">
+      <effect>
+         <InnerShadow offsetY="-10.0">
+            <color>
+               <Color opacity="0.1410256326198578" />
+            </color>
+         </InnerShadow>
+      </effect>
+      <font>
+         <Font name="Arial Black" size="24.0" />
+      </font>
+   </TextField>
 </AnchorPane>
