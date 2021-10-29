@@ -5,12 +5,15 @@ import java.io.IOException;
 import java.net.InetAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.util.ArrayList;
 
 public class ClientListener implements Runnable{
-    int port = 8000;
+    int port = 9999;
     int clientID = 0;
     ServerSocket server = new ServerSocket(port);
     InetAddress inetAddress = InetAddress.getLocalHost();
+
+    Socket socket;
 
     DataInputStream input;
     DataOutputStream output;

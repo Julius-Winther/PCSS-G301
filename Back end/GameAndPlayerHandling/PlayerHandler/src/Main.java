@@ -16,11 +16,12 @@ public class Main {
         DataOutputStream output;
 
         boolean hasJoinedGame = false;
+        boolean hasProvidedName = false;
 
         Player player = new Player("default", 0, socket, clientID);
 
         while(true) {
-            if(hasJoinedGame) {
+            if(hasJoinedGame && !hasProvidedName) {
                 System.out.println("Name: ");
 
                 String name = scanner.next();
@@ -33,10 +34,10 @@ public class Main {
                     clientID = input.readInt(); //client id is received from server
 
                     player = new Player(name, 0, socket, clientID); //new player instance
+                    System.out.println("CLient ID: " + clientID);
                 }
-                player.main();
             }
-            else {
+            if(!hasJoinedGame) {
                 String ipAddress = "";
                 System.out.println("IP-address:");
                 ipAddress = scanner.next();
@@ -47,6 +48,10 @@ public class Main {
 
                 socket = new Socket(ipAddress, port);
                 hasJoinedGame = true;
+            }
+
+            if(hasJoinedGame && hasProvidedName) {
+                player.main();
             }
         }
     }

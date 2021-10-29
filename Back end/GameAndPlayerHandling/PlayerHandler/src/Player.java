@@ -24,8 +24,9 @@ public class Player {
     public void main() throws IOException { //for now, all things will happen from within here, when the player has joined
         System.out.println("You're in game!");
         input = new DataInputStream(socket.getInputStream());   //listens to server
-        while(true) {
-            System.out.println(input.readUTF());    //prints out any string send from the server
+        String serverMessage = input.readUTF();
+        if(!serverMessage.equals("")) {
+            System.out.println(serverMessage);    //prints out any string send from the server
         }
     }
 

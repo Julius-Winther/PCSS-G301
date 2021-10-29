@@ -42,4 +42,12 @@ public class PlayerHandler {
     public void addSocket(Socket socket) {
         sockets.add(socket);
     }
+
+    public Socket getSocketFromIndex(int index) {
+        return sockets.get(index);
+    }
+
+    public int getNumberOfSockets() {
+        return sockets.size();
+    }
 }
