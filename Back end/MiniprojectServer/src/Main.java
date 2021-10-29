@@ -42,7 +42,9 @@ public class Main implements Serializable {
                     Socket hostSocket = socket;
                     joining.hostJoin(hostSocket, numberOfClients);
                     hostName = joining.hostName(hostSocket);
-                    host = new Host(hostName, hostSocket);
+                    InetAddress hostIPaddress = InetAddress.getLocalHost();
+                    host = new Host(hostName, hostSocket, hostIPaddress.getHostAddress());
+                    System.out.println(host.getIp());
                 } //Next clients will become players in the array
                  else {
                     Socket socketPlayer = socket;

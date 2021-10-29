@@ -12,7 +12,7 @@ public class Host {
     DataOutputStream output;
     Socket socket;
 
-    public Host(String name, Socket socket) {
+    public Host(String name, Socket socket, String ip) {
         this.name = name;
         this.ip = ip;
         this.socket = socket;
