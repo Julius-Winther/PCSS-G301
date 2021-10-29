@@ -32,24 +32,34 @@ public class Main implements Serializable {
 
         while (true) {
 
-            numberOfClients++;
+
             while (true) {
                 Socket socket = server.accept();    //accepts clients
+                numberOfClients++;
 
+                //First client to join will become game host
                 if (numberOfClients == 1) {
-                    Socket socketHost = socket;
-                    joining.join(socketHost, numberOfClients);
-                    hostName = joining.hostName(socketHost);
-                    host = new Host(hostName, socketHost);
-                } else {
+                    Socket hostSocket = socket;
+                    joining.hostJoin(hostSocket, numberOfClients);
+                    hostName = joining.hostName(hostSocket);
+                    host = new Host(hostName, hostSocket);
+                } //Next clients will become players in the array
+                 else {
                     Socket socketPlayer = socket;
-                    joining.join(socket, numberOfClients);
-                    playerName = joining.playerName(socket);
-                    players.add(new Player(playerID, playerName, 0, socket));
+                    joining.playerJoin(socketPlayer, numberOfClients);
+                    playerName = joining.playerName(socketPlayer);
+                    if (playerName == "start") {
+                        break;
+                    }
+                    else {
+                        players.add(new Player(playerID, playerName, 0, socket));
+                    }
                 }
 
-            }
+                System.out.println("only got out of the if/else loop :(");
 
+            }
+            System.out.println("Exited the while loop");
 
 
 
