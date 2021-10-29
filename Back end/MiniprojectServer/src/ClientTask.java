@@ -39,7 +39,7 @@ public class ClientTask implements Runnable {
             //Host methods
             if (clientId == 1) {
                 hostName = input.readUTF();
-                host = new Host(hostName);
+                //host = new Host(hostName);
                 System.out.println("This is the name of our host: " + host.getName());
                 host.sendHostInfo(output);
             }
@@ -47,7 +47,7 @@ public class ClientTask implements Runnable {
             //Client methods
             else {
                 String playerName = input.readUTF();
-                players.add(new Player(clientId, playerName, 0));
+                //players.add(new Player(clientId, playerName, 0));
                 System.out.println("This " + playerName + " is player number: " + (clientId-1) + " have FUN!");
                 players.get(clientId-2).sendPlayerInfo(output, hostName);
             }

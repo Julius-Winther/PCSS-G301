@@ -8,12 +8,14 @@ public class Player {
     String name;
     int points;
     boolean isActive;
+    Socket socket;
 
     //Constructor of player
-    public Player(int playerId, String name, int points) {
+    public Player(int playerId, String name, int points, Socket socket) {
         this.playerId = playerId;
         this.name = name;
         this.points = points;
+        this.socket = socket;
     }
 
     //Data output from Server to Player

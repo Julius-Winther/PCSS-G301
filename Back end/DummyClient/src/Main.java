@@ -21,6 +21,7 @@ public class Main {
                     // lines will be executed
                     jeoparty.sendMessage(userInput);    //the name is sent to the server
                     System.out.println(jeoparty.getMessage());
+                    System.out.println(jeoparty.getMessage());
                 }
 
                 boolean gameHasStarted = jeoparty.getBoolean();

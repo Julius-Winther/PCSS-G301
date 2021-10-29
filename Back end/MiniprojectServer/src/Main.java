@@ -7,13 +7,23 @@ import java.util.ArrayList;
 public class Main implements Serializable {
 
     public static void main(String args[]) throws IOException {
-        //Creatin an object for the gam
+        //Creatin an object for the game
         Game game =  new Game();
-        //game.loadQuestions();
+
+        //Joining variables
+            //Names
+            String hostName;
+            String playerName;
+            //Creating an object for joining
+            Joining joining = new Joining();
+            //Player and Host objects
+            Host host;
+            ArrayList<Player> players = new ArrayList<Player>();
 
         //Hosting the server
         int port = 8000;
         int numberOfClients = 0;
+        int playerID = 0;
 
         //> this prints out the information (ip and port) that is needed in order for the client(s) to join the server
         ServerSocket server = new ServerSocket(port);
@@ -21,23 +31,46 @@ public class Main implements Serializable {
         System.out.println("Ask the dummy client to enter this IP address:\n" + inetAddress.getHostAddress() + "\nand this port number:\n" + port);
 
         while (true) {
-            Socket socket = server.accept();    //accepts clients
 
-            numberOfClients++;
 
-            inetAddress = socket.getInetAddress();
-            System.out.println("InetAddress declared!");
+            while (true) {
+                Socket socket = server.accept();    //accepts clients
+                numberOfClients++;
 
-            System.out.println("\nClient number " + numberOfClients + " joined!");
-            System.out.println("Client " + numberOfClients + "'s host name is: " + inetAddress.getHostName());
-            System.out.println("Client " + numberOfClients + "'s IP-address is: " + inetAddress.getHostAddress() + "\n");
+                //First client to join will become game host
+                if (numberOfClients == 1) {
+                    Socket hostSocket = socket;
+                    joining.hostJoin(hostSocket, numberOfClients);
+                    hostName = joining.hostName(hostSocket);
+                    InetAddress hostIPaddress = InetAddress.getLocalHost();
+                    host = new Host(hostName, hostSocket, hostIPaddress.getHostAddress());
+                    System.out.println(host.getIp());
+                } //Next clients will become players in the array
+                 else {
+                    Socket socketPlayer = socket;
+                    joining.playerJoin(socketPlayer, numberOfClients);
+                    playerName = joining.playerName(socketPlayer);
+                    if (playerName == "start") {
+                        break;
+                    }
+                    else {
+                        players.add(new Player(playerID, playerName, 0, socket));
+                    }
+                }
+
+                System.out.println("only got out of the if/else loop :(");
+
+            }
+            System.out.println("Exited the while loop");
+
+
 
             //> a thread is created for every single client
             //> these threads will handle every in- and outputs from clients
-            new Thread(
+            /*new Thread(
                     new ClientTask(socket, "Multithreaded Server", numberOfClients, inetAddress.getHostAddress())
             ).start();
-            System.out.println("Threading done!");
+            System.out.println("Threading done!");*/
 
             //Sending all the questionblock variables
             //game.transferBlockOut(socket, output);
