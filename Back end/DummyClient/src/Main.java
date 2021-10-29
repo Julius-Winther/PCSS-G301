@@ -10,6 +10,7 @@ public class Main {
         Scanner scanner = new Scanner (System.in);  //handles input
 
         boolean hasJoinedHost = false;  //whether this client has joined the server or not
+        boolean isHost = false;
 
         while(true) {
             //> if this client has joined,
@@ -21,7 +22,11 @@ public class Main {
                     // lines will be executed
                     jeoparty.sendMessage(userInput);    //the name is sent to the server
                     System.out.println(jeoparty.getMessage());
-                    System.out.println(jeoparty.getMessage());
+
+                    isHost = jeoparty.getBoolean();
+                    if(isHost){
+
+                    }
                 }
 
                 boolean gameHasStarted = jeoparty.getBoolean();
