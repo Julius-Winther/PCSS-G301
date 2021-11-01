@@ -14,20 +14,10 @@ public class Player {
     DataInputStream input;
     DataOutputStream output;
 
-    Player(String name, int points, Socket socket, int clientID) {
+    Player(String name, int points, int clientID) {
         this.name = name;
         this.points = points;
-        this.socket = socket;
         this.clientID = clientID;
-    }
-
-    public void main() throws IOException { //for now, all things will happen from within here, when the player has joined
-        System.out.println("You're in game!");
-        input = new DataInputStream(socket.getInputStream());   //listens to server
-        String serverMessage = input.readUTF();
-        if(!serverMessage.equals("")) {
-            System.out.println(serverMessage);    //prints out any string send from the server
-        }
     }
 
     public String getName() {

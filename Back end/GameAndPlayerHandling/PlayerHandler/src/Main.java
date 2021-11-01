@@ -7,51 +7,85 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) throws IOException {
-        Socket socket = null;
+        Socket socket;
         Scanner scanner = new Scanner(System.in);
 
+        Game game = new Game(0);
+
+        String name = "";
+        int points = 0;
         int clientID = 0;
 
-        DataInputStream input;
-        DataOutputStream output;
+        DataInputStream input = null;
+        DataOutputStream output = null;
 
-        boolean hasJoinedGame = false;
-        boolean hasProvidedName = false;
-
-        Player player = new Player("default", 0, socket, clientID);
+        boolean hasJoinedServer = false;
+        boolean isHost = false;
+        boolean hasGivenName = false;
+        boolean gameHasStarted = false;
 
         while(true) {
-            if(hasJoinedGame && !hasProvidedName) {
-                System.out.println("Name: ");
+            if(gameHasStarted) {
+                System.out.println("The game has started!");
+                for (int i = 0; i < 25; i++) {
+                    System.out.println(input.readUTF());    //questions
+                }
+                System.out.println(input.readUTF());    //active player
+                System.out.println(input.readUTF());    //active question
+                if(isHost) {
+                    System.out.println("Choose a question by number");
+                    output.writeInt(Integer.parseInt(scanner.next()));
 
-                String name = scanner.next();
-
-                if(!name.equals("")) {
-                    output = new DataOutputStream(socket.getOutputStream());
-                    output.writeUTF(name);  //name is sent to server
-
-                    input = new DataInputStream(socket.getInputStream());
-                    clientID = input.readInt(); //client id is received from server
-
-                    player = new Player(name, 0, socket, clientID); //new player instance
-                    System.out.println("CLient ID: " + clientID);
+                    System.out.println("Write 'done' to exit the question");
+                    output.writeBoolean(scanner.next().equals("done"));
                 }
             }
-            if(!hasJoinedGame) {
-                String ipAddress = "";
-                System.out.println("IP-address:");
-                ipAddress = scanner.next();
+            else {
+                if(hasJoinedServer) {
+                    if(hasGivenName) {
+                        if(isHost) {
+                            System.out.println("Write 'start' to start the game");
+                            boolean hasStartedGame = scanner.next().equals("start");
+                            output.writeBoolean(hasStartedGame);
+                            gameHasStarted = input.readBoolean();
+                        }
+                        else {
+                            System.out.println("Waiting for host to start game...");
+                            gameHasStarted = input.readBoolean();
+                        }
+                    }
+                    else {
+                        isHost = input.readBoolean();
+                        if(isHost) {
+                            System.out.println("You are host");
+                        }
 
-                int port;
-                System.out.println("Port:");
-                port = scanner.nextInt();
+                        System.out.println("Name:");
+                        name = scanner.next();
+                        if(!name.equals("")) {
+                            Player player = new Player(name, points, clientID);
+                            output.writeUTF(name);
+                            hasGivenName = true;
+                        }
+                    }
+                    gameHasStarted = input.readBoolean();
+                }
+                else {
+                    System.out.println("IP-Address:");
+                    String ip = scanner.next();
 
-                socket = new Socket(ipAddress, port);
-                hasJoinedGame = true;
-            }
+                    System.out.println("Port:");
+                    int port = scanner.nextInt();
 
-            if(hasJoinedGame && hasProvidedName) {
-                player.main();
+                    socket = new Socket(ip,port);
+
+                    input = new DataInputStream(socket.getInputStream());
+                    output = new DataOutputStream(socket.getOutputStream());
+
+                    //new Thread()
+
+                    hasJoinedServer = true;
+                }
             }
         }
     }
