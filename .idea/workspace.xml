@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="b7da5314-7e94-4971-8ded-6aa848558994" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FrontEndMiniprojectDina/src/resources/ConnectIPPage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEndMiniprojectDina/src/resources/ConnectIPPage.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,7 +21,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.last.edited" value="SDKs" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="org.jetbrains.plugins.github.ui.GithubSettingsConfigurable" />
@@ -36,7 +35,8 @@
       <option name="presentableId" value="Default" />
       <updated>1635508119048</updated>
       <workItem from="1635508120866" duration="356000" />
-      <workItem from="1635508505090" duration="161000" />
+      <workItem from="1635508505090" duration="497000" />
+      <workItem from="1635754611825" duration="435000" />
     </task>
     <servers />
   </component>
