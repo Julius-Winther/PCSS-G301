@@ -32,4 +32,8 @@ public class Player {
     public void setClientID(int clientID) {
         this.clientID = clientID;
     }
+
+    public String toString() {
+        return name + ":\nPoints: " + points + "\nClient ID: " + clientID;
+    }
 }

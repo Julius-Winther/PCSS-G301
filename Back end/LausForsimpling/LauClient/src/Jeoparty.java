@@ -15,23 +15,23 @@ public class Jeoparty {
     DataInputStream input;
     DataOutputStream output;
 
+    Scanner scanner;
+
     Jeoparty() throws IOException {
+        scanner = new Scanner(System.in);
+
         start();
+        game();
     }
 
     public void start() throws IOException {
-        Scanner scanner = new Scanner(System.in);
-
         while(true) {
-            if(isHost && !hasJoinedLobby) {
-                System.out.println("You are the host");
-            } //prints out that you are the host
-
             if(hasJoinedServer && !hasJoinedLobby) {
                 System.out.println("Name:");
                 String name = scanner.next();
                 if(!name.equals("")) {
                     Player player = new Player(name, 0, clientID);
+                    System.out.println(player.toString());
                     output.writeUTF(name);
                     hasJoinedLobby = true;
                 }
@@ -46,11 +46,16 @@ public class Jeoparty {
                 joinServer(host, port);
             } //the user is prompted to provide ip and port for them to join
 
+            if(isHost && !hasJoinedLobby) {
+                System.out.println("You are the host");
+            } //prints out that you are the host
+
             if(hasJoinedLobby) {
                 if(isHost) {
                     System.out.println("Write 'start' to start the game");
                     if(scanner.next().equals("start")) {
                         output.writeBoolean(true); //host is starting game
+                        break;
                     }
                 }
                 else {
@@ -61,8 +66,18 @@ public class Jeoparty {
         }
     }
 
-    public void game() {
+    public void game() throws IOException {
         System.out.println("Your mom");
+        while(true) {
+            boolean isYourTurn = input.readBoolean();
+            String activePlayerName = input.readUTF();
+            if(isYourTurn) {
+                System.out.println("It is your turn");
+            }
+            else {
+                System.out.println("It is " + activePlayerName);
+            }
+        }
     }
 
     public void joinServer(String host, int port) throws IOException {
