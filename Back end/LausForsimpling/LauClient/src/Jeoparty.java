@@ -31,12 +31,12 @@ public class Jeoparty {
                 String name = scanner.next();
                 if(!name.equals("")) {
                     Player player = new Player(name, 0, clientID);
-                    System.out.println(player.toString());
+                    //System.out.println(player.toString()); //player info is printed
                     output.writeUTF(name);
                     hasJoinedLobby = true;
                 }
             } //asks the user for a name and then creates a player and notifies the server
-            else {
+            if(!hasJoinedServer) {
                 System.out.println("IP-Address:");
                 host = scanner.next();
 
@@ -60,22 +60,37 @@ public class Jeoparty {
                 }
                 else {
                     System.out.println("Waiting for host to start game...");
-                    gameHasStarted = input.readBoolean();
+                    while(true) {
+                        gameHasStarted = input.readBoolean();
+                        if(gameHasStarted) {
+                            //System.out.println("Game has started: true");
+                            break;
+                        }
+                    }
                 }
             } //if is host, prompts you accordingly while in the lobby
+
+            if(gameHasStarted) {
+                break;
+            }
         }
     }
 
     public void game() throws IOException {
-        System.out.println("Your mom");
         while(true) {
-            boolean isYourTurn = input.readBoolean();
-            String activePlayerName = input.readUTF();
-            if(isYourTurn) {
-                System.out.println("It is your turn");
+            if(isHost) {
+                System.out.println("Choose question");
+                int questionNumber = scanner.nextInt();
             }
             else {
-                System.out.println("It is " + activePlayerName);
+                boolean isYourTurn = input.readBoolean();
+                String activePlayerName = input.readUTF();
+                if(isYourTurn) {
+                    System.out.println("It is your turn");
+                }
+                else {
+                    System.out.println("It is " + activePlayerName);
+                }
             }
         }
     }
@@ -87,6 +102,7 @@ public class Jeoparty {
         output = new DataOutputStream(socket.getOutputStream());
 
         clientID = input.readInt();
+        System.out.println("Your ID: " + clientID);
         if(clientID == 0) {
             isHost = true;
         }

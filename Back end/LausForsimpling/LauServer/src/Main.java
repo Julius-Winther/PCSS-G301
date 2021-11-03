@@ -19,6 +19,8 @@ public class Main {
         DataInputStream input;
         DataOutputStream output;
 
+        Announcer announcer = new Announcer();
+
         int numberOfClients = 0;
         int clientID;
 
@@ -27,10 +29,13 @@ public class Main {
         while(true) {
             clientID = numberOfClients;
             socket = server.accept();
-            sockets.add(socket);
+            announcer.sockets.add(socket);
 
-            ClientCommunication clientCommunication = new ClientCommunication(socket, clientID);
+            System.out.println("Number of sockets: " + announcer.sockets.size());
+            ClientCommunication clientCommunication = new ClientCommunication(socket, clientID, announcer);
             clientCommunications.add(clientCommunication);
+
+            announcer.clientCommunications.add(clientCommunication);
 
             new Thread(clientCommunication).start();
             numberOfClients++;
