@@ -35,6 +35,14 @@ public class Player {
         this.points = points;
     }
 
+    public void addPoints(int pointsToAdd) {
+        points+=pointsToAdd;
+    }
+
+    public void subtractPoints(int pointsToSubtract) {
+        points+=pointsToSubtract;
+    }
+
     public int getId() {
         return id;
     }
