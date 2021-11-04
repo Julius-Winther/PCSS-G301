@@ -1,14 +1,19 @@
 import java.io.IOException;
+import java.net.InetAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.net.UnknownHostException;
 import java.util.ArrayList;
 
 public class Jeoparty {
     int port = 8888;
     ServerSocket server;
+    Socket socket;
 
-    ArrayList<Client> clients;
-    ArrayList<Socket> sockets;
+    InetAddress inetAddress;
+
+    ArrayList<ClientHandler> clientHandlers = new ArrayList<ClientHandler>();
+    ArrayList<Socket> sockets = new ArrayList<Socket>();
 
     boolean isLobby = true;
     boolean isGame;
@@ -27,10 +32,14 @@ public class Jeoparty {
         this.isGame = isGame;
     }
 
-    public void update() {
+    public void update() throws UnknownHostException {
+        inetAddress = InetAddress.getLocalHost();
+        System.out.println("IP-Address:\n" + inetAddress.getHostAddress() + "\nPort:\n" + port);
+
         while(true) {
             if(isLobby) {
                 listenForClients();
+
             }
 
             if(isGame) {
@@ -41,24 +50,37 @@ public class Jeoparty {
 
     void listenForClients() {
         try {
-            Socket socket = server.accept();
-            System.out.println("Someone joined!");
-            sockets.add(socket);
-
-            new Thread(new ClientHandler(socket)).start();
-
+            socket = server.accept();
+            //System.out.println("Someone joined!");
         } catch (IOException e) {
             e.printStackTrace();
             System.out.println("CLIENT FAILED CONNECTING TO SERVER!");
         }
+
+        boolean isHost = numberOfClients == 0;
+
+        ClientHandler clientHandler = new ClientHandler(socket);
+        clientHandlers.add(clientHandler);
+        new Thread(clientHandler).start();
+
+        try {
+            //clientHandler.getClient().setName(clientHandler.getStringReceiver().receiveString());
+            clientHandler.setClient(new Client(isHost, clientHandler.getStringReceiver().receiveString(), numberOfClients));
+            System.out.println(clientHandler.getClient().toString());
+        } catch (IOException e) {
+            e.printStackTrace();
+            System.out.println("FAILED SETTING CLIENT NAME!");
+        }
+
+        numberOfClients++;
     }
 
-    public ArrayList<Client> getClients() {
-        return clients;
+    public ArrayList<ClientHandler> getClientHandlers() {
+        return clientHandlers;
     }
 
-    public void setClients(ArrayList<Client> clients) {
-        this.clients = clients;
+    public void setClients(ArrayList<ClientHandler> clientHandlers) {
+        this.clientHandlers = clientHandlers;
     }
 
     public ArrayList<Socket> getSockets() {
@@ -67,14 +89,6 @@ public class Jeoparty {
 
     public void setSockets(ArrayList<Socket> sockets) {
         this.sockets = sockets;
-    }
-
-    public void addClient(Client client) {
-        clients.add(client);
-    }
-
-    public void removeClientByIndex(int index) {
-        clients.remove(index);
     }
 
     public void addSocket(Socket socket) {

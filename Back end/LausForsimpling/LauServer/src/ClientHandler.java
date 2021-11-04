@@ -3,6 +3,7 @@ import java.net.Socket;
 import java.util.ArrayList;
 
 public class ClientHandler implements Runnable {
+    Client client;
     Socket socket;
 
     BooleanReceiver booleanReceiver;
@@ -15,11 +16,9 @@ public class ClientHandler implements Runnable {
     StringSender stringSender;
 
     public ClientHandler(Socket socket) {
+        client = new Client(false, "Client", 0);
         this.socket = socket;
-    }
 
-    @Override
-    public void run() {
         try {
             booleanReceiver = new BooleanReceiver(socket);
             booleanSender = new BooleanSender(socket);
@@ -33,7 +32,29 @@ public class ClientHandler implements Runnable {
             e.printStackTrace();
             System.out.println("FAILED TO CREATE RECEIVERS AND SENDERS!");
         }
+    }
 
+    public ClientHandler(Client client, Socket socket) {
+        this.client = client;
+        this.socket = socket;
+
+        try {
+            booleanReceiver = new BooleanReceiver(socket);
+            booleanSender = new BooleanSender(socket);
+
+            integerReceiver = new IntegerReceiver(socket);
+            integerSender = new IntegerSender(socket);
+
+            stringReceiver = new StringReceiver(socket);
+            stringSender = new StringSender(socket);
+        } catch (IOException e) {
+            e.printStackTrace();
+            System.out.println("FAILED TO CREATE RECEIVERS AND SENDERS!");
+        }
+    }
+
+    @Override
+    public void run() {
         new Thread(booleanReceiver).start();
         new Thread(booleanSender).start();
 
@@ -42,6 +63,22 @@ public class ClientHandler implements Runnable {
 
         new Thread(stringReceiver).start();
         new Thread(stringSender).start();
+    }
+
+    public Client getClient() {
+        return client;
+    }
+
+    public void setClient(Client client) {
+        this.client = client;
+    }
+
+    public Socket getSocket() {
+        return socket;
+    }
+
+    public void setSocket(Socket socket) {
+        this.socket = socket;
     }
 
     public BooleanReceiver getBooleanReceiver() {
