@@ -2,7 +2,7 @@ import java.io.DataInputStream;
 import java.io.IOException;
 import java.net.Socket;
 
-public class IntegerReceiver {
+public class IntegerReceiver implements Runnable {
     Socket socket;
     DataInputStream input;
 
@@ -13,5 +13,10 @@ public class IntegerReceiver {
 
     public int receiveInteger() throws IOException {
         return input.readInt();
+    }
+
+    @Override
+    public void run() {
+
     }
 }

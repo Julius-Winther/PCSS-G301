@@ -2,7 +2,7 @@ import java.io.DataInputStream;
 import java.io.IOException;
 import java.net.Socket;
 
-public class StringReceiver {
+public class StringReceiver implements Runnable {
     Socket socket;
     DataInputStream input;
 
@@ -13,5 +13,10 @@ public class StringReceiver {
 
     public String receiveString() throws IOException {
         return input.readUTF();
+    }
+
+    @Override
+    public void run() {
+
     }
 }

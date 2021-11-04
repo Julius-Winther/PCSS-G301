@@ -2,7 +2,7 @@ import java.io.DataOutputStream;
 import java.io.IOException;
 import java.net.Socket;
 
-public class BooleanSender {
+public class BooleanSender implements Runnable {
     Socket socket;
     DataOutputStream output;
 
@@ -13,5 +13,10 @@ public class BooleanSender {
 
     public void sendBoolean(boolean bool) throws IOException {
         output.writeBoolean(bool);
+    }
+
+    @Override
+    public void run() {
+
     }
 }

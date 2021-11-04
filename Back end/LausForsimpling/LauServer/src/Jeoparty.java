@@ -1,23 +1,64 @@
+import java.io.IOException;
+import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.ArrayList;
 
 public class Jeoparty {
-    ArrayList<Socket> sockets = new ArrayList<Socket>();
+    int port = 8888;
+    ServerSocket server;
 
-    boolean isLobby;
+    ArrayList<Client> clients;
+    ArrayList<Socket> sockets;
+
+    boolean isLobby = true;
     boolean isGame;
 
-    public Jeoparty() {
+    int numberOfClients = 0;
+
+    public Jeoparty() throws IOException {
+        server = new ServerSocket(port);
     }
 
-    public Jeoparty(ArrayList<Socket> sockets) {
-        this.sockets = sockets;
-    }
 
-    public Jeoparty(ArrayList<Socket> sockets, boolean isLobby, boolean isGame) {
-        this.sockets = sockets;
+    public Jeoparty(boolean isLobby, boolean isGame) throws IOException {
+        server = new ServerSocket(port);
+
         this.isLobby = isLobby;
         this.isGame = isGame;
+    }
+
+    public void update() {
+        while(true) {
+            if(isLobby) {
+                listenForClients();
+            }
+
+            if(isGame) {
+
+            }
+        }
+    }
+
+    void listenForClients() {
+        try {
+            Socket socket = server.accept();
+            System.out.println("Someone joined!");
+            sockets.add(socket);
+
+            new Thread(new ClientHandler(socket)).start();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+            System.out.println("CLIENT FAILED CONNECTING TO SERVER!");
+        }
+    }
+
+    public ArrayList<Client> getClients() {
+        return clients;
+    }
+
+    public void setClients(ArrayList<Client> clients) {
+        this.clients = clients;
     }
 
     public ArrayList<Socket> getSockets() {
@@ -26,6 +67,14 @@ public class Jeoparty {
 
     public void setSockets(ArrayList<Socket> sockets) {
         this.sockets = sockets;
+    }
+
+    public void addClient(Client client) {
+        clients.add(client);
+    }
+
+    public void removeClientByIndex(int index) {
+        clients.remove(index);
     }
 
     public void addSocket(Socket socket) {
@@ -55,7 +104,6 @@ public class Jeoparty {
     @Override
     public String toString() {
         return "Jeoparty{" +
-                "sockets=" + sockets +
                 ", isLobby=" + isLobby +
                 ", isGame=" + isGame +
                 '}';

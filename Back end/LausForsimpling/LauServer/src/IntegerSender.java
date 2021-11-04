@@ -2,7 +2,7 @@ import java.io.DataOutputStream;
 import java.io.IOException;
 import java.net.Socket;
 
-public class IntegerSender {
+public class IntegerSender implements Runnable {
     Socket socket;
     DataOutputStream output;
 
@@ -13,5 +13,10 @@ public class IntegerSender {
 
     public void sendInteger(int number) throws IOException {
         output.writeInt(number);
+    }
+
+    @Override
+    public void run() {
+
     }
 }

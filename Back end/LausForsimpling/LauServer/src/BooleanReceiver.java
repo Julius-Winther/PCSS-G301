@@ -2,7 +2,7 @@ import java.io.DataInputStream;
 import java.io.IOException;
 import java.net.Socket;
 
-public class BooleanReceiver {
+public class BooleanReceiver implements Runnable {
     Socket socket;
     DataInputStream input;
 
@@ -13,5 +13,10 @@ public class BooleanReceiver {
 
     public boolean receiveBoolean() throws IOException {
         return input.readBoolean();
+    }
+
+    @Override
+    public void run() {
+
     }
 }
