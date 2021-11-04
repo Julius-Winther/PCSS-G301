@@ -20,7 +20,7 @@ public class Host {
 
     //Data output to Server to Host
     public void sendHostInfo(DataOutputStream output) throws IOException {
-        output.writeUTF("You are the Host of this game. Be gentle!");
+        output.writeBoolean(true);
     }
 
 
