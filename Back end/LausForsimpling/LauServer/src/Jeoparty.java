@@ -49,6 +49,7 @@ public class Jeoparty {
     }
 
     void listenForClients() {
+        //> the listening
         try {
             socket = server.accept();
             //System.out.println("Someone joined!");
@@ -57,19 +58,28 @@ public class Jeoparty {
             System.out.println("CLIENT FAILED CONNECTING TO SERVER!");
         }
 
-        boolean isHost = numberOfClients == 0;
+        boolean isHost = numberOfClients == 0; //used for deciding who is host
 
-        ClientHandler clientHandler = new ClientHandler(socket);
+        //> client handler is created with default client, started in another thread and added to the arraylist of client handlers
+        ClientHandler clientHandler = new ClientHandler(socket); //an object for handling clients and their socket
         clientHandlers.add(clientHandler);
         new Thread(clientHandler).start();
 
+        //> the client is assigned some proper values, e.g. by using the stringReceiver which listens for strings (name) from the client
         try {
-            //clientHandler.getClient().setName(clientHandler.getStringReceiver().receiveString());
             clientHandler.setClient(new Client(isHost, clientHandler.getStringReceiver().receiveString(), numberOfClients));
-            System.out.println(clientHandler.getClient().toString());
+            System.out.println(clientHandler.getClient().toString() + " joined");
         } catch (IOException e) {
             e.printStackTrace();
             System.out.println("FAILED SETTING CLIENT NAME!");
+        }
+
+        //> the client is told whether it is the host or not
+        try {
+            clientHandler.getBooleanSender().sendBoolean(isHost);
+        } catch (IOException e) {
+            e.printStackTrace();
+            System.out.println("FAILED SENDING HOST CONFIRMATION TO CLIENT 0!");
         }
 
         numberOfClients++;
