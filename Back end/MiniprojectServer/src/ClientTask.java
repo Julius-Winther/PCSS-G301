@@ -36,9 +36,10 @@ public class ClientTask implements Runnable {
             DataInputStream input = new DataInputStream(socket.getInputStream());
             DataOutputStream output = new DataOutputStream(socket.getOutputStream());
 
+            output.writeBoolean(clientId == 1);
+
             //Host methods
             if (clientId == 1) {
-                output.writeBoolean(true);
                 hostName = input.readUTF();
                 host = new Host(hostName);
                 System.out.println("This is the name of our host: " + host.getName());

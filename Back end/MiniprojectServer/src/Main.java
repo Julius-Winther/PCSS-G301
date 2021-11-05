@@ -1,19 +1,24 @@
+import javax.imageio.metadata.IIOMetadataFormatImpl;
 import java.io.*;
 import java.net.InetAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.ArrayList;
 
-public class Main implements Serializable {
+public class Main {
 
     public static void main(String args[]) throws IOException {
         //Creatin an object for the gam
         Game game =  new Game();
         //game.loadQuestions();
 
+        ArrayList<Socket> sockets = new ArrayList<Socket>();
         //Hosting the server
         int port = 8000;
         int numberOfClients = 0;
+
+        ArrayList<String> names = new ArrayList<String>();
+
 
         //> this prints out the information (ip and port) that is needed in order for the client(s) to join the server
         ServerSocket server = new ServerSocket(port);
@@ -22,8 +27,26 @@ public class Main implements Serializable {
 
         while (true) {
             Socket socket = server.accept();    //accepts clients
+            sockets.add(socket);
+            DataOutputStream output = new DataOutputStream (socket.getOutputStream());
+            if(numberOfClients == 0){
+                output.writeBoolean(true); // tells client that they are the host.
+            }
+            else {
+                output.writeBoolean(false); //Game will start
+            }
 
+            DataInputStream input = new DataInputStream(socket.getInputStream());
+            String name = input.readUTF();
+            names.add(name);
             numberOfClients++;
+
+
+
+            if (numberOfClients >= 3){
+                boolean lobbyFilled = true;
+                break;
+            }
 
             inetAddress = socket.getInetAddress();
             System.out.println("InetAddress declared!");
@@ -34,25 +57,16 @@ public class Main implements Serializable {
 
             //> a thread is created for every single client
             //> these threads will handle every in- and outputs from clients
-            new Thread(
+           /* new Thread(
                     new ClientTask(socket, "Multithreaded Server", numberOfClients, inetAddress.getHostAddress())
             ).start();
-            System.out.println("Threading done!");
+            System.out.println("Threading done!"); */
 
-            //Sending all the questionblock variables
-            //game.transferBlockOut(socket, output);
-
-            //Receiving name of the first user
-            //game.loadPlayerInfo(socket, input);
-
-            //Receiving name and IP of host
-            //game.loadHostInfo(socket, input);
-
-            //Sending the info from player
-            //game.sendPlayerInfo(socket, output);
-
-            //Sending the info on host to player
-            //game.sendHostInfo(socket, output);
+        }
+        for (int i = 0; i < sockets.size(); i++) {
+            DataOutputStream output = new DataOutputStream(sockets.get(i).getOutputStream());
+            output.writeBoolean(true);
+            output.writeUTF(names.get(i));
         }
     }
 }
