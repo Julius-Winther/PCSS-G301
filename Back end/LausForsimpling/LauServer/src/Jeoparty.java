@@ -1,3 +1,4 @@
+import java.io.DataOutputStream;
 import java.io.IOException;
 import java.net.InetAddress;
 import java.net.ServerSocket;
@@ -71,7 +72,7 @@ public class Jeoparty {
             System.out.println(clientHandler.getClient().toString() + " joined");
         } catch (IOException e) {
             e.printStackTrace();
-            System.out.println("FAILED SETTING CLIENT NAME!");
+            System.out.println("FAILED SETTING UP CLIENT!");
         }
 
         //> the client is told whether it is the host or not
@@ -80,6 +81,49 @@ public class Jeoparty {
         } catch (IOException e) {
             e.printStackTrace();
             System.out.println("FAILED SENDING HOST CONFIRMATION TO CLIENT 0!");
+        }
+
+        //> notifying the current client about who is currently in the lobby
+        for (int i = 0; i < clientHandlers.size(); i++) {
+            //> telling the current client that all former clients have been accounted for
+            try {
+                clientHandler.getBooleanSender().sendBoolean(false);
+            } catch (IOException e) {
+                e.printStackTrace();
+                System.out.println("FAILED TELLING THE CLIENT THAT THERE ARE STILL OTHER CLIENTS TO ACCOUNT FOR!");
+            }
+
+            //> the names of other clients are sent to the current client
+            try {
+                if(i != numberOfClients) //makes sure that the current client is not told about their own entrance
+                    clientHandler.getStringSender().sendString(clientHandlers.get(i).getClient().getName());
+            } catch (IOException e) {
+                e.printStackTrace();
+                System.out.println("FAILED TELLING THE NEW CLIENT ABOUT CLIENTS THAT HAVE ALREADY JOINED!");
+            }
+        }
+
+        //> telling the current client that all former clients have been accounted for
+        try {
+            if(numberOfClients == 0) {
+                clientHandler.getStringSender().sendString("No one..");
+            }
+            clientHandler.getBooleanSender().sendBoolean(true);
+        } catch (IOException e) {
+            e.printStackTrace();
+            System.out.println("FAILED TELLING THE CLIENT THAT ALL OTHER CLIENTS ARE ACCOUNTED FOR!");
+        }
+
+        //> all clients are notified that someone joined
+        try {
+            for (int i = 0; i < clientHandlers.size(); i++) {
+                //if(i != numberOfClients) {
+                    clientHandlers.get(i).getStringSender().sendString(clientHandler.getClient().getName());
+                //}
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+            System.out.println("FAILED NOTIFYING CLIENTS ABOUT NEW CLIENT");
         }
 
         numberOfClients++;

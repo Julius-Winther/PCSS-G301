@@ -33,7 +33,19 @@ public class Main {
         boolean isHost = input.readBoolean();
         System.out.println("You are the host: " + isHost);
 
-        //>
+        //> telling whether someone is already in the lobby
+        System.out.println("People in the lobby:");
+        while(true) {
+            boolean isDoneWithNames = input.readBoolean();
+            if(isDoneWithNames) {
+                break;
+            }
+            else {
+                System.out.println(input.readUTF());
+            }
+        }
+
+        //> prompts the client accordingly
         if(isHost) {
             System.out.println("'start' to begin");
         }
