@@ -9,6 +9,12 @@ public class Client {
         id = 0;
     }
 
+    Client(boolean isHost, String name) {
+        this.isHost = isHost;
+        this.name = name;
+        id = 0;
+    }
+
     public Client(boolean isHost, String name, int id) {
         this.isHost = isHost;
         this.name = name;
