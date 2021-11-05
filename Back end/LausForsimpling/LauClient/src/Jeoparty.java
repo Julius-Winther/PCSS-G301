@@ -14,68 +14,48 @@ public class Jeoparty {
     ClientHandler clientHandler;
 
     boolean isHost = false;
-    boolean isJoining, isLobby, isGame;
+    boolean isJoining = true;
+    boolean isLobby, isGame;
 
-    Jeoparty() {
-        clientHandler = new ClientHandler(new Client(false, "Client", 0), socket);
-    }
+    Jeoparty() {    }
 
     public void update() {
         while(true) {
             if(isJoining) {
                 joinServer();
+                createClient();
             }
 
             if(isLobby) {
-
+                waitAndListen();
             }
 
             if(isGame) {
 
             }
         }
-/*
-        //> telling whether someone is already in the lobby
-        System.out.println("People in the lobby:");
-        while(true) {
-            boolean isDoneWithNames = input.readBoolean();
-            if(isDoneWithNames) {
-                break;
-            }
-            else {
-                System.out.println(input.readUTF());
-            }
-        }
-
-        //> prompts the client accordingly
-        if(isHost) {
-            System.out.println("'start' to begin");
-        }
-        else {
-            System.out.println("Wait for host to begin");
-        }*/
     }
 
     public void joinServer() {
-        //> joining server
+        //> input for joining server
         System.out.println("IP-Address:");
         host = scanner.next();
         System.out.println("Port:");
         port = scanner.nextInt();
 
+        //> actually joining server
         try {
-            clientHandler.setSocket(new Socket(host, port));
-
+            socket = new Socket(host, port);
+            clientHandler = new ClientHandler(new Client(false, "Client", 0), socket);
         } catch (IOException e) {
             e.printStackTrace();
             System.out.println("FAILED CONNECTING TO SERVER!");
         }
         System.out.println("Connection success!");
-
-        createClient();
     }
 
     public void createClient() {
+        System.out.println("Your name:");
         String name = scanner.next();
         //> name of this client is sent to server
         try {
@@ -96,5 +76,56 @@ public class Jeoparty {
         //> client object is updated and is host is printed out
         clientHandler.setClient(new Client(isHost, name));
         System.out.println("You are the host: " + isHost);
+
+        isJoining = false;
+        isLobby = true;
+    }
+
+    public void waitAndListen() {
+        //> telling whether someone is already in the lobby
+        System.out.println("People in the lobby:");
+        while(true) {
+            boolean isDoneWithNames = false;
+            //> listens for whether we're done going through all clients already joiend
+            try {
+                isDoneWithNames = clientHandler.getBooleanReceiver().receiveBoolean();
+                //System.out.println("Received boolean about unaccounted for clients\nIs done: " + isDoneWithNames);
+            } catch (IOException e) {
+                e.printStackTrace();
+                System.out.println("FAILED RECEIVING MESSAGE ABOUT GOING THROUGH ALL CLIENTS IN LOBBY!");
+            }
+            if(isDoneWithNames) {
+                break;
+            }
+            else {
+                try {
+                    System.out.println(clientHandler.getStringReceiver().receiveString());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                    System.out.println("FAILED RECEIVING NAME OF CLIENTS IN LOBBY!");
+                }
+            } //> the names of clients in the lobby are printed out
+        }
+
+        //> prompts the client accordingly
+        if(isHost) {
+            System.out.println("'start' to begin");
+            while(true) {
+                boolean willStart = scanner.next().equals("start");
+                if(willStart) {
+                    //> the server is told that the host will start
+                    try {
+                        clientHandler.getBooleanSender().sendBoolean(true);
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                        System.out.println("FAILED SENDING HOST REQUEST ABOUT STARTING THE GAME!");
+                    }
+                    break;
+                }
+            }
+        }
+        else {
+            System.out.println("Wait for host to begin");
+        }
     }
 }

@@ -55,14 +55,21 @@ public class ClientHandler implements Runnable {
 
     @Override
     public void run() {
-        new Thread(booleanReceiver).start();
-        new Thread(booleanSender).start();
+        while (true) {
+            if(socket != null) {
+                new Thread(booleanReceiver).start();
+                new Thread(booleanSender).start();
 
-        new Thread(integerReceiver).start();
-        new Thread(integerSender).start();
+                new Thread(integerReceiver).start();
+                new Thread(integerSender).start();
 
-        new Thread(stringReceiver).start();
-        new Thread(stringSender).start();
+                new Thread(stringReceiver).start();
+                new Thread(stringSender).start();
+
+                break;
+            }
+        }
+
     }
 
     public Client getClient() {
