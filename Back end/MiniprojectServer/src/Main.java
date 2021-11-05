@@ -39,6 +39,9 @@ public class Main {
             DataInputStream input = new DataInputStream(socket.getInputStream());
             String name = input.readUTF();
             names.add(name);
+
+            System.out.println("Client name: " + name);
+
             numberOfClients++;
 
 
@@ -49,7 +52,6 @@ public class Main {
             }
 
             inetAddress = socket.getInetAddress();
-            System.out.println("InetAddress declared!");
 
             System.out.println("\nClient number " + numberOfClients + " joined!");
             System.out.println("Client " + numberOfClients + "'s host name is: " + inetAddress.getHostName());
@@ -65,8 +67,14 @@ public class Main {
         }
         for (int i = 0; i < sockets.size(); i++) {
             DataOutputStream output = new DataOutputStream(sockets.get(i).getOutputStream());
-            output.writeBoolean(true);
-            output.writeUTF(names.get(i));
+            for (int j = 0; j < names.size(); j++) {
+                output.writeUTF(names.get(j));
+            }
+        }
+        System.out.println("Sent all the names to the client");
+
+        while(true) {
+
         }
     }
 }
