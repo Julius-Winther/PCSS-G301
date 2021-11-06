@@ -27,4 +27,4 @@ Link to github client repository:
 https://github.com/VictorHjort/client
 
 Link to github server repository:
-https://github.com/Julius-Winther/PCSS-G301
+https://github.com/Julius-Winther/PCSS-G301-Server
