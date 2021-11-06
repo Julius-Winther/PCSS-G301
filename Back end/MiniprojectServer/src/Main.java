@@ -7,7 +7,9 @@ import java.util.ArrayList;
 
 public class Main {
 
+    static Jeoparty jeoparty;
     public static void main(String args[]) throws IOException {
-        new Jeoparty().update();
+        jeoparty = new Jeoparty();
+        jeoparty.update();
     }
 }

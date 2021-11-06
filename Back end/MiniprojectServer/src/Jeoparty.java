@@ -32,34 +32,6 @@ public class Jeoparty {
         }
     }
 
-    void addQuestions() {
-        questionTitles.add("This game has you stacking blocks in different shapes,\ntrying to rack up as many points without reaching the top");
-        questionTitles.add("This action RPG has been released and re-released\nin almost every format over the last 10 years.");
-        questionTitles.add("This game features player-made game modes such as\nProp Hunt, Trouble in Terrorist Town and Hide and Seek.");
-        questionTitles.add("The game series in which Nuclear Gandhi originates from.");
-        questionTitles.add("The original LEGO Star Wars, God Of War and the\nXbox 360 were released this year.");
-
-        questionTitles.add("This animal is the most globally popular house pet.");
-        questionTitles.add("");
-        questionTitles.add("");
-        questionTitles.add("");
-        questionTitles.add("");
-
-        questionTitles.add("");
-        questionTitles.add("");
-        questionTitles.add("");
-        questionTitles.add("");
-        questionTitles.add("");
-    }
-
-    void addAnswers() {
-        questionAnswers.add("What is Tetris?");
-        questionAnswers.add("What is The Elder Scrolls 5: Skyrim?");
-        questionAnswers.add("What is Garry’s mod?");
-        questionAnswers.add("What is Civilization?");
-        questionAnswers.add("What is 2005?");
-    }
-
     void startServer() {
         InetAddress inetAddress = null;
         try {
@@ -81,7 +53,7 @@ public class Jeoparty {
     void listenForClients() {
         while(true) {
             try {
-                socket = server.accept();    //accepts clients
+                socket = server.accept(); //accepts clients
             } catch (IOException e) {
                 e.printStackTrace();
                 System.out.println("FAILED ACCEPTING CLIENT!");
@@ -93,7 +65,7 @@ public class Jeoparty {
                 if (numberOfClients == 0) {
                     output.writeBoolean(true); // tells client that they are the host.
                 } else {
-                    output.writeBoolean(false); //Game will start
+                    output.writeBoolean(false);
                 }
             } catch (IOException e) {
                 e.printStackTrace();
@@ -111,13 +83,10 @@ public class Jeoparty {
 
             System.out.println(names.get(numberOfClients) + " joined!");
             System.out.println("Client number " + numberOfClients);
-            //System.out.println("Client " + numberOfClients + "'s host name is: " + inetAddress.getHostName());
-            //System.out.println("Client " + numberOfClients + "'s IP-address is: " + inetAddress.getHostAddress() + "\n");
 
             numberOfClients++;
 
             if (numberOfClients >= 3){
-                boolean lobbyFilled = true;
                 break;
             }
         }
@@ -150,7 +119,7 @@ public class Jeoparty {
             hostInput = new DataInputStream(sockets.get(0).getInputStream());
 
             int questionsLeft = 5;
-            while(questionsLeft >= 1) {
+            while(questionsLeft >= 5) {
                 int activeQuestionNumber = hostInput.readInt();
                 String activeQuestion = questionTitles.get(activeQuestionNumber);
                 String questionAnswer = questionAnswers.get(activeQuestionNumber);
@@ -176,5 +145,33 @@ public class Jeoparty {
             e.printStackTrace();
             System.out.println("FAILED SETTING UP AND RECEIVING HOST INPUT!");
         }
+    }
+
+    void addQuestions() {
+        questionTitles.add("This game has you stacking blocks in different shapes,\ntrying to rack up as many points without reaching the top");
+        questionTitles.add("This action RPG has been released and re-released\nin almost every format over the last 10 years.");
+        questionTitles.add("This game features player-made game modes such as\nProp Hunt, Trouble in Terrorist Town and Hide and Seek.");
+        questionTitles.add("The game series in which Nuclear Gandhi originates from.");
+        questionTitles.add("The original LEGO Star Wars, God Of War and the\nXbox 360 were released this year.");
+
+        questionTitles.add("This animal is the most globally popular house pet.");
+        questionTitles.add("");
+        questionTitles.add("");
+        questionTitles.add("");
+        questionTitles.add("");
+
+        questionTitles.add("");
+        questionTitles.add("");
+        questionTitles.add("");
+        questionTitles.add("");
+        questionTitles.add("");
+    }
+
+    void addAnswers() {
+        questionAnswers.add("What is Tetris?");
+        questionAnswers.add("What is The Elder Scrolls 5: Skyrim?");
+        questionAnswers.add("What is Garry’s mod?");
+        questionAnswers.add("What is Civilization?");
+        questionAnswers.add("What is 2005?");
     }
 }
