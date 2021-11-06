@@ -24,7 +24,7 @@ When the server is run, it will show the IP-address and port, the client have to
 them into the client to join the server.
 
 Link to github client repository:
-https://github.com/VictorHjort/frontEnd
+https://github.com/VictorHjort/client
 
 Link to github server repository:
 https://github.com/Julius-Winther/PCSS-G301
